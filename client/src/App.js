@@ -72,7 +72,7 @@ class App extends Component {
         //word: bless price ability shy chimney noble sad weird fringe jaguar host large
         //word: reason sport suggest nerve arena talk limit marine capital venture practice tree fantasy olive dutch hurdle dish usual giggle foot venue satisfy skate dice
 
-        web3.eth.personal.sign("123", "0xf348328786984162e70f08d54a272427D810124b", "greattesting", getit)
+        web3.eth.personal.sign("123", "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit)
             .then(console.log, getit());
 
         function getit(callback){
