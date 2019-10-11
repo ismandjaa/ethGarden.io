@@ -65,6 +65,32 @@ class App extends Component {
         this.setState({ storageValue: response });
     };
 
+    runSignNounce = async () => {
+        const { web3 } = this.state;
+
+        //password: greattesting
+        //word: bless price ability shy chimney noble sad weird fringe jaguar host large
+        //word: reason sport suggest nerve arena talk limit marine capital venture practice tree fantasy olive dutch hurdle dish usual giggle foot venue satisfy skate dice
+
+        web3.eth.personal.sign("123", "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit)
+            .then(console.log, getit());
+
+        function getit(callback){
+            console.log("was called" + callback);
+        }
+
+
+
+
+
+        //web3.eth.personal.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
+            //.then(console.log, );
+
+
+        // Update state with the result.
+        //this.setState({ storageValue: final });
+    };
+
   render() {
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
@@ -90,6 +116,8 @@ class App extends Component {
         </p>
         <b>The stored value is: <h2>{this.state.storageValue}</h2></b>
           <Button variant="danger" onClick={this.runExample2}>CHANGE THE STUPID STORED VALUE TO 1337</Button>
+
+          <Button variant="danger" onClick={this.runSignNounce}>Sign nounce 123</Button>
       </div>
 
     );
