@@ -72,7 +72,7 @@ class App extends Component {
         //word: bless price ability shy chimney noble sad weird fringe jaguar host large
         //word: reason sport suggest nerve arena talk limit marine capital venture practice tree fantasy olive dutch hurdle dish usual giggle foot venue satisfy skate dice
 
-        web3.eth.personal.sign("123", "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit)
+        web3.eth.personal.sign("123", "0xf348328786984162e70f08d54a272427D810124b", "greattesting", getit)
             .then(console.log, getit());
 
         function getit(callback){
@@ -80,7 +80,8 @@ class App extends Component {
         }
 
 
-
+        //web3.eth.personal.ecRecover("123", "0x72bc72953b304b7a4d1da97341a07acf88572deac6611b365284726c851de60f470f591a019286f64eb07fba1738acac4b9448eb3961b4f7b0bc4c6eda35cc3d1c")
+        //    .then(console.log);
 
 
         //web3.eth.personal.sign("Hello world", "0x11f4d0A3c12e86B4b5F39B213F7E19D048276DAe", "test password!")
