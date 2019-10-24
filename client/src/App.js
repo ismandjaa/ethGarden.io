@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
+import { styled } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
+
+import NavigationIcon from '@material-ui/icons/Navigation';
+import Fab from '@material-ui/core/Fab';
 
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./utils/getWeb3";
@@ -9,6 +15,9 @@ import getWeb3 from "./utils/getWeb3";
 import "./App.css";
 
 class App extends Component {
+
+
+
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
@@ -93,6 +102,28 @@ class App extends Component {
     };
 
   render() {
+
+      const EthgardenAppBar = styled(AppBar)({
+          background: '#81C784',
+          border: 0,
+          height: 50,
+          padding: '0 30px',
+      });
+
+      const LoginFab = styled(Fab)({
+          background: '#81C784',
+          '&:hover': {
+              background: '#81C784 !important',
+          },
+
+          height: 50,
+          padding: '0 30px',
+          color: 'white',
+          border: 0,
+          //boxShadow: '0 0px 0px 0px',
+      });
+
+
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
@@ -100,25 +131,35 @@ class App extends Component {
     return (
 
       <div style={{
-          position: 'absolute', left: '50%', top: '50%',
-          transform: 'translate(-50%, -50%)'
+          //position: 'absolute', left: '50%', top: '50%',
+         // transform: 'translate(-50%, -50%)'
       }} className="App">
           <div>
-              <AppBar color="primary" position="static">
-                  <h1>My header</h1>
-              </AppBar>
+              <EthgardenAppBar color="primary" position="static">
+                  <Toolbar>
+                  <h3 style={{position: 'absolute', left: '8px', top: '8px'}}>Ethgarden.io</h3>
+                      <LoginFab size="medium" style={{boxShadow: "none", position: 'absolute', left: '90%', top: '5px', outline: 'none'}} variant="extended" >
+                          <NavigationIcon />
+                          Login
+                      </LoginFab>
+                  </Toolbar>
+              </EthgardenAppBar>
 
           </div>
-
+        <div style={{
+            position: 'absolute', left: '50%', top: '30%',
+            transform: 'translate(-50%, -50%)'
+        }}>
         <h1>Smart Contract UI TEST</h1>
         <p>
           If your contracts compiled and migrated successfully, below will show
           a stored value of 5.
         </p>
         <b>The stored value is: <h2>{this.state.storageValue}</h2></b>
-          <Button variant="danger" onClick={this.runExample2}>CHANGE THE STUPID STORED VALUE TO 1337</Button>
+          <Button variant="danger" onClick={this.runExample2}>STUPID VALUE 13337</Button>
 
           <Button variant="danger" onClick={this.runSignNounce}>Sign nounce 123</Button>
+        </div>
       </div>
 
     );
