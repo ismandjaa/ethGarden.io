@@ -138,7 +138,7 @@ class App extends Component {
               <EthgardenAppBar color="primary" position="static">
                   <Toolbar>
                   <h3 style={{position: 'absolute', left: '8px', top: '8px'}}>Ethgarden.io</h3>
-                      <LoginFab size="medium" style={{boxShadow: "none", position: 'absolute', left: '90%', top: '5px', outline: 'none'}} variant="extended" >
+                      <LoginFab size="medium" style={{boxShadow: "none", position: 'absolute', right: '1px', top: '5px', outline: 'none'}} variant="extended" >
                           <NavigationIcon />
                           Login
                       </LoginFab>
