@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 import { styled } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-
-import { Route, Redirect } from 'react-router'
+//IMPORT REACT-ROUTER HERE.
+//import { Route, Redirect } from 'react-router'
 
 import NavigationIcon from '@material-ui/icons/Navigation';
 import Fab from '@material-ui/core/Fab';
@@ -107,7 +107,7 @@ class App extends Component {
         //const accounts = await web3.eth.getAccounts();
         const account = await web3.currentProvider.selectedAddress;
         web3.eth.personal.sign(account, "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit())
-            .then(console.log(signed), getit())
+            .then(console.log, getit())
 
         function getit(callback){
             console.log("was called" + callback);
