@@ -5,6 +5,7 @@ import { styled } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+import { Route, Redirect } from 'react-router'
 
 import NavigationIcon from '@material-ui/icons/Navigation';
 import Fab from '@material-ui/core/Fab';
@@ -75,14 +76,14 @@ class App extends Component {
     };
 
     runSignNounce = async () => {
-        const { web3 } = this.state;
+        const { web3} = this.state;
 
         //password: greattesting
         //word: bless price ability shy chimney noble sad weird fringe jaguar host large
         //word: reason sport suggest nerve arena talk limit marine capital venture practice tree fantasy olive dutch hurdle dish usual giggle foot venue satisfy skate dice
 
         web3.eth.personal.sign("123", "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit)
-            .then(console.log, getit());
+            .then(console.log, getit(getit()));
 
         function getit(callback){
             console.log("was called" + callback);
@@ -100,7 +101,18 @@ class App extends Component {
         // Update state with the result.
         //this.setState({ storageValue: final });
     };
+    signLogin = async () => {
+        const { web3 } = this.state;
+        const signed = null;
+        //const accounts = await web3.eth.getAccounts();
+        const account = await web3.currentProvider.selectedAddress;
+        web3.eth.personal.sign(account, "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit())
+            .then(console.log(signed), getit())
 
+        function getit(callback){
+            console.log("was called" + callback);
+        }
+    };
   render() {
 
       const EthgardenAppBar = styled(AppBar)({
@@ -111,9 +123,9 @@ class App extends Component {
       });
 
       const LoginFab = styled(Fab)({
-          background: '#81C784',
+          background: '#66BB6A',
           '&:hover': {
-              background: '#81C784 !important',
+              background: '#66BB6A !important',
           },
 
           height: 50,
@@ -138,7 +150,7 @@ class App extends Component {
               <EthgardenAppBar color="primary" position="static">
                   <Toolbar>
                   <h3 style={{position: 'absolute', left: '8px', top: '8px'}}>Ethgarden.io</h3>
-                      <LoginFab size="medium" style={{boxShadow: "none", position: 'absolute', right: '1px', top: '5px', outline: 'none'}} variant="extended" >
+                      <LoginFab size="medium" onClick={this.signLogin} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '6px', outline: 'none'}} variant="extended" >
                           <NavigationIcon />
                           Login
                       </LoginFab>
