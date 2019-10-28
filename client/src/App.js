@@ -82,7 +82,7 @@ class App extends Component {
         //word: bless price ability shy chimney noble sad weird fringe jaguar host large
         //word: reason sport suggest nerve arena talk limit marine capital venture practice tree fantasy olive dutch hurdle dish usual giggle foot venue satisfy skate dice
 
-        web3.eth.personal.sign("123", "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit)
+        web3.eth.personal.sign("123", web3.currentProvider.selectedAddress, "greattesting", getit)
             .then(console.log, getit(getit()));
 
         function getit(callback){
@@ -106,7 +106,7 @@ class App extends Component {
         const signed = null;
         //const accounts = await web3.eth.getAccounts();
         const account = await web3.currentProvider.selectedAddress;
-        web3.eth.personal.sign(account, "0xfEDE2b489847Ed92a76D9c68C700782A68a3251c", "greattesting", getit())
+        web3.eth.personal.sign(account, web3.currentProvider.selectedAddress, "greattesting", getit())
             .then(console.log, getit())
 
         function getit(callback){
