@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import { styled } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import NavigationIcon from '@material-ui/icons/Navigation';
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import Fab from '@material-ui/core/Fab';
 import { Link } from 'react-router-dom'
 
+
 class Navbar extends Component {
+
 
     render() {
 
@@ -19,7 +23,7 @@ class Navbar extends Component {
             padding: '0 30px',
         });
 
-        const LoginFab = styled(Fab)({
+        const LoginFab = styled(Button)({
             background: '#66BB6A',
             '&:hover': {
                 background: '#66BB6A !important',
@@ -28,8 +32,8 @@ class Navbar extends Component {
             height: 50,
             padding: '0 30px',
             color: 'white',
-            border: 0,
-            //boxShadow: '0 0px 0px 0px',
+            border: 5,
+            boxShadow: '2 2px 2px 2px',
         });
 
         return (
@@ -42,10 +46,11 @@ class Navbar extends Component {
                     <EthgardenAppBar color="primary" position="static">
                         <Toolbar>
                             <Link to='/'><h3 style={{position: 'absolute', left: '8px', top: '8px', color: 'white'}}>Ethgarden.io</h3> </Link>
-                            <Link to='/Home'> <LoginFab size="medium" onClick={this.signLogin} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '6px', outline: 'none'}} variant="extended" >
-                                <NavigationIcon />
+                            <Link to='/Home'> <Button variant="outlined" style={{boxShadow: "none", position: 'absolute', right: '1px', top: '6px', outline: 'none', color: 'white', borderColor: 'white'}}>
+                                <SportsEsportsIcon style={{position: 'relative', left: '-8px'}}/>
                                 Login
-                            </LoginFab> </Link>
+                            </Button>
+                            </Link>
                         </Toolbar>
                     </EthgardenAppBar>
 
