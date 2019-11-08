@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { styled } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { BrowserRouter as Router} from 'react-router-dom';
 //IMPORT REACT-ROUTER HERE.
 //import { Route, Redirect } from 'react-router'
 
@@ -107,7 +108,7 @@ class App extends Component {
         //const accounts = await web3.eth.getAccounts();
         const account = await web3.currentProvider.selectedAddress;
         web3.eth.personal.sign(account, web3.currentProvider.selectedAddress, "greattesting", getit())
-            .then(console.log, getit())
+            .then(console.log, getit());
 
         function getit(callback){
             console.log("was called" + callback);
@@ -162,9 +163,9 @@ class App extends Component {
             position: 'absolute', left: '50%', top: '30%',
             transform: 'translate(-50%, -50%)'
         }}>
-        <h1>Smart Contract UI TEST</h1>
+        <h1>Ethgarden UI TEST</h1>
         <p>
-          If your contracts compiled and migrated successfully, below will show
+          If your contracts compiled and migrated successfully, you should see
           a stored value of 5.
         </p>
         <b>The stored value is: <h2>{this.state.storageValue}</h2></b>
