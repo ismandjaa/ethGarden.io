@@ -8,6 +8,8 @@ import { BrowserRouter as Router} from 'react-router-dom';
 //IMPORT REACT-ROUTER HERE.
 //import { Route, Redirect } from 'react-router'
 import "../App.css";
+import getWeb3 from "../utils/getWeb3";
+import SimpleStorageContract from "../contracts/SimpleStorage";
 class Home extends Component {
 
     render() {

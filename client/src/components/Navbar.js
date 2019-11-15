@@ -9,13 +9,26 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import Fab from '@material-ui/core/Fab';
 import { Link } from 'react-router-dom'
+import getWeb3 from "../utils/getWeb3";
+import SimpleStorageContract from "../contracts/SimpleStorage";
+import Web3 from "web3";
 
 
-class Navbar extends Component {
+    class Navbar extends Component {
+    state = { storageValue: 0, web3: null, accounts: null, contract: null, login: false};
+
+
+    startLogin = async () => {
+
+            // Get network provider and web3 instance.
+        console.log("trying to get web3");
+        await getWeb3();
+        console.log("got it")
+        };
+
 
 
     render() {
-
         const EthgardenAppBar = styled(AppBar)({
             background: '#81C784',
             border: 0,
@@ -36,6 +49,7 @@ class Navbar extends Component {
             boxShadow: '2 2px 2px 2px',
         });
 
+
         return (
 
             <div style={{
@@ -46,11 +60,11 @@ class Navbar extends Component {
                     <EthgardenAppBar color="primary" position="static">
                         <Toolbar>
                             <Link to='/'><h3 style={{position: 'absolute', left: '8px', top: '8px', color: 'white'}}>Ethgarden.io</h3> </Link>
-                            <Link to='/Home'> <Button variant="outlined" style={{boxShadow: "none", position: 'absolute', right: '1px', top: '6px', outline: 'none', color: 'white', borderColor: 'white'}}>
+                             <Button id="loginButton" variant="outlined" onClick = {this.startLogin} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '8px', outline: 'none', color: 'white', borderColor: 'white'}}>
                                 <SportsEsportsIcon style={{position: 'relative', left: '-8px'}}/>
                                 Login
                             </Button>
-                            </Link>
+
                         </Toolbar>
                     </EthgardenAppBar>
 

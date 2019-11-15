@@ -2,23 +2,11 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
+import SimpleStorageContract from "../contracts/SimpleStorage";
 class Welcome extends Component {
 
     state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
-    componentDidMount = async () => {
-        try {
-            // Get network provider and web3 instance.
-            const web3 = await getWeb3();
-            this.setState({ web3 });
-        } catch (error) {
-            // Catch any errors for any of the above operations.
-            alert(
-                `Failed to load web3, accounts, or contract. Check console for details.`,
-            );
-            console.error(error);
-        }
-    };
 
     render() {
         if (typeof web3 !== "undefined") {
