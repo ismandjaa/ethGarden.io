@@ -4,6 +4,8 @@ import Home from './Home'
 import Shop from './Shop'
 import Welcome from './Welcome'
 import Login from './Login'
+import Navbar from './Navbar'
+
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -12,6 +14,7 @@ import Login from './Login'
 // when the pathname is exactly the string "/"
 const Main = () => (
     <main>
+
         <Switch>
             <Route exact path='/' component={Welcome}/>
             <Route exact path='/Shop' component={Shop}/>

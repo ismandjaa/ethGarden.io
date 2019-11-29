@@ -8,10 +8,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import Fab from '@material-ui/core/Fab';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import getWeb3 from "../utils/getWeb3";
 import SimpleStorageContract from "../contracts/SimpleStorage";
-import Web3 from "web3";
+import Web3 from "web3"
+import Welcome from "./Welcome"
+import Main from "./Main"
 
 
     class Navbar extends Component {
@@ -21,14 +23,18 @@ import Web3 from "web3";
     startLogin = async () => {
 
             // Get network provider and web3 instance.
-        console.log("trying to get web3");
-        await getWeb3();
-        console.log("got it")
+        console.log("Login is trying to get web3");
+        await getWeb3()
+            .then((response) => {
+                console.log("Log in got it");
+                this.setState({redirect: true});
+            });
         };
 
 
 
     render() {
+
         const EthgardenAppBar = styled(AppBar)({
             background: '#81C784',
             border: 0,
@@ -48,6 +54,19 @@ import Web3 from "web3";
             border: 5,
             boxShadow: '2 2px 2px 2px',
         });
+
+
+        if (this.state.redirect) {
+            //return <Main dataFromParent = {this.state.redirect} />;
+            this.setState({redirect: false});
+            return <Redirect to={{
+                pathname: '/Home',
+            }} />;
+
+        }
+
+
+
 
 
         return (

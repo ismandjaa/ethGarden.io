@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
+import getWeb3 from "../utils/getWeb3";
+import SimpleStorageContract from "../contracts/SimpleStorage";
+
 class Shop extends Component {
+
 
     render() {
         return (
