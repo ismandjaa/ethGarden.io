@@ -1,35 +1,36 @@
 pragma solidity ^0.5.0;
 
 import "./ERC721Full.sol";
+import "./Ownable.sol";
 
-contract PlantBase is ERC721Full {
+contract PlantBase is ERC721Full, Ownable {
 
     // TODO DECIDE ON NAME AND SYMBOL FOR OUR PLANTS
     constructor() ERC721Full("Ethgarden.io", "GROW") public {
     }
 
     // TODO Figure out if you need a Grown event
-    event Grown(address owner, uint256 plantId, uint256 stats);
+    event Grown(uint256 plantId, uint256 stats);
 
     struct Plant {
         // Attributes stored here
-        uint256 stats;
+        uint256 seed;
         
         // Stored value in wei //TODO REEVALUATE SIZE
         uint256 value;
 
-        // When it was planted
-        uint64 plantTime;
+        // When it was planted //TODO REEVALUATE SIZE
+        uint256 plantTime;
 
         // Address of potential ERC20 contract
         address ERC20Address;
     }
 
     // Fee for creating a seed, going to be the reward for shipping it // TODO REEVALUATE VALUE
-    uint256 public shippingFee = 0.001 ether;
+    uint256 public shippingFee = 0.0001 ether;
     
     // Minimum plant price // TODO REEVALUATE VALUE
-    uint256 public minPlantPrice = 0.001 ether;
+    uint256 public minPlantPrice = 0.0001 ether;
 
     // How many seconds it takes to grow a plant // TODO MAYBE DO IT WITH BLOCK NUMBER INSTEAD IDK (SEARCH FOR now KEYWORD IF YOU CHANGE IT)
     uint256 public timeToGrow = 0;
@@ -45,16 +46,16 @@ contract PlantBase is ERC721Full {
         require(msg.value >= shippingFee + minPlantPrice, "A plant cost more than that");
         uint256 _value = uint256(msg.value - shippingFee);
         Plant memory _plant = Plant({
-            stats: 0,
+            seed: 0,
             value: _value,
-            plantTime: uint64(now),
+            plantTime: block.number,
             ERC20Address: address(0) // TODO Be sure what this does
         });
         uint _id = plants.push(_plant) - 1; //Zero indexed aray, the push returns array length
         _mint(msg.sender, _id);
     }
 
-    function mintERC20(address _address) public payable { //TODO EVALUATE SECURITY 
+    function mintERC20(address _address) public payable { //TODO EVALUATE SECURITY (CALLSTACK DEBTH?)
         // Require address is approved
         require(isApprovedERC20[_address], "Address does not belong to an approved ERC20 token");
         
@@ -87,30 +88,30 @@ contract PlantBase is ERC721Full {
         // assert((abi.decode(contractBefore, (uint256)) + _allowance) == abi.decode(contractAfter, (uint256)) && (abi.decode(senderBefore, (uint256)) - _allowance) == abi.decode(senderAfter, (uint256)), "Math does not work out");
         
         Plant memory _plant = Plant({
-            stats: 0,
+            seed: 0,
             value: _allowance,
-            plantTime: uint64(now),
+            plantTime: block.number,
             ERC20Address: _address
         });
         uint _id = plants.push(_plant) - 1;
         _mint(msg.sender, _id);
     }
 
-    function shipIt(uint _tokenId) public {
+    function shipIt(uint _tokenId) public { //TODO EVALUATE SECURITY (CALLSTACK DEPTH?)
         // Check for validity of tokenId
         require(_exists(_tokenId), "Plant is burned or not minted");
         // Check if stats are already rolles / if plant is already shipped
-        require(plants[_tokenId].stats == 0, "Plant is already shipped");
+        require(plants[_tokenId].seed == 0, "Plant is already shipped");
         // Check time requirement
-        require(plants[_tokenId].plantTime + timeToGrow <= now, "Plant is not ready for shipping");
+        require(plants[_tokenId].plantTime + timeToGrow <= block.number, "Plant is not ready for shipping");
         
         // Rolling for stats with some "randomness" //TODO Find out which attributes are meaningfull to include
-        plants[_tokenId].stats = uint256(keccak256(abi.encodePacked(blockhash(block.number - 1), plants[_tokenId].value, msg.sender, plants.length)));
+        plants[_tokenId].seed = uint256(keccak256(abi.encodePacked(blockhash(block.number - 1), plants[_tokenId].value, msg.sender, plants.length)));
         
         msg.sender.transfer(shippingFee);
         
         // Emmiting grown event
-        emit Grown(ownerOf(_tokenId), _tokenId, plants[_tokenId].stats);
+        emit Grown(_tokenId, plants[_tokenId].seed);
     }
 
     function refund(uint _tokenId) public { //TODO EVALUATE SECURITY
@@ -127,7 +128,7 @@ contract PlantBase is ERC721Full {
         return now;
     }
 
-    function approveERC20(address _address) external { //TODO MAKE ONLY OWNER
+    function approveERC20(address _address) external onlyOwner() { //TODO MAKE ONLY OWNER
         isApprovedERC20[_address] = true;
     }
 
