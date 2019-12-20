@@ -58,10 +58,13 @@ import Main from "./Main"
 
         if (this.state.redirect) {
             //return <Main dataFromParent = {this.state.redirect} />;
+
             this.setState({redirect: false});
+
             return <Redirect to={{
                 pathname: '/Home',
             }} />;
+
 
         }
 

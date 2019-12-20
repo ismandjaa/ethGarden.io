@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
-import "../App.css";
+import "../App.css"
+import Button from 'react-bootstrap/Button';
 import getWeb3 from "../utils/getWeb3";
 import SimpleStorageContract from "../contracts/SimpleStorage";
 
@@ -18,8 +19,11 @@ class Shop extends Component {
                 }}>
                     <h1>Shop</h1>
                     <p>
-                        React router is currently routing to Shop.js
+                        Welcome to the ethgarden shop!
                     </p>
+
+                    <Button variant="outline-primary"   >Buy Plant</Button><Button variant="outline-primary"   >Refund Plant</Button><Button variant="outline-primary"   >boom</Button>
+
                 </div>
             </div>
 
