@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {PageContext} from "../contexts/PageContext";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,8 +20,14 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Ethgarden from "./Ethgarden";
 import Main from "./Main";
-import {Redirect, Link} from "react-router-dom";
+import {Redirect, Link, useHistory} from "react-router-dom";
 import Shop from "./Shop";
+import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import HelpIcon from '@material-ui/icons/Help';
+import Button from "@material-ui/core/Button";
+
 
 const drawerWidth = 240;
 
@@ -89,6 +96,7 @@ export default function MiniDrawer() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    let history = useHistory();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -96,14 +104,45 @@ export default function MiniDrawer() {
 
     const handleDrawerClose = () => {
         setOpen(false);
-        console.log("trying to redirect");
-
-        return <Redirect to={{
-            pathname: '/Shop' ,
-        }} />;
-
 
     };
+
+    const handleHome = () => {
+        setOpen(false);
+        console.log("trying to redirect");
+        history.push("/Home");
+
+    };
+
+    const handleShop = () => {
+        setOpen(false);
+        console.log("trying to redirect");
+        history.push("/Shop");
+
+    };
+
+    const handleAchievements = () => {
+        setOpen(false);
+        console.log("trying to redirect");
+        history.push("/Achievements");
+
+    };
+
+    const handleHelp = () => {
+        setOpen(false);
+        console.log("trying to redirect");
+        history.push("/Help");
+
+    };
+
+    const { page } = useContext(PageContext);
+
+    const getPage = () => {
+        return(
+            page
+        )
+    };
+
 
 
     return (
@@ -119,6 +158,9 @@ export default function MiniDrawer() {
                 }}
             >
                 <Toolbar>
+                    <Button id="loginButton" onClick = {handleHelp} style={{boxShadow: "none", position: 'absolute', right: '15px', top: '15px', outline: 'none', color: 'white', borderColor: 'none'}}>
+                        LOGOUT
+                    </Button>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -131,7 +173,7 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        My garden
+                        {getPage()}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -162,29 +204,28 @@ export default function MiniDrawer() {
 
 
                 <List>
-                    {['My garden', 'Shop', 'Achievements'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
+                    <ListItem button onClick={handleHome}>
+                        <ListItemIcon>{<LocalFloristIcon />}</ListItemIcon>
+                        <ListItemText primary={"My garden"} />
+                    </ListItem>
+                    <ListItem button onClick={handleShop}>
+                        <ListItemIcon>{<ShoppingBasketIcon />}</ListItemIcon>
+                        <ListItemText primary={"Shop"} />
+                    </ListItem>
+                    <ListItem button onClick={handleAchievements}>
+                        <ListItemIcon>{<StarBorderIcon />}</ListItemIcon>
+                        <ListItemText primary={"Achievements"} />
+                    </ListItem>
                 </List>
                 <Divider />
                 <List>
-                    {['Help'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    <ListItem button onClick={null}>
-                        <ListItemIcon>{<MailIcon />}</ListItemIcon>
+                    <ListItem button onClick={handleHelp}>
+                        <ListItemIcon>{<HelpIcon />}</ListItemIcon>
                         <ListItemText primary={"Help"} />
                     </ListItem>
                 </List>
+
+
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />

@@ -4,6 +4,8 @@ import Home from './Home'
 import Shop from './Shop'
 import Welcome from './Welcome'
 import Login from './Login'
+import Help from './Help'
+import Achievements from './Achievements'
 import Navbar from './Navbar'
 
 
@@ -20,6 +22,8 @@ const Main = () => (
             <Route exact path='/Shop' component={Shop}/>
             <Route exact path='/Home' component={Home}/>
             <Route exact path='/Login' component={Login}/>
+            <Route exact path='/Help' component={Help}/>
+            <Route exact path='/Achievements' component={Achievements}/>
 
             // add more routes here
         </Switch>

@@ -14,26 +14,37 @@ import SimpleStorageContract from "../contracts/SimpleStorage";
 import Web3 from "web3"
 import Welcome from "./Welcome"
 import Main from "./Main"
+import {LoginContext} from "../contexts/LoginContext";
 
 
-    class Navbar extends Component {
+class Navbar extends Component {
+    static contextType = LoginContext;
     state = { storageValue: 0, web3: null, accounts: null, contract: null, login: false};
 
 
     startLogin = async () => {
 
-            // Get network provider and web3 instance.
+        // Get network provider and web3 instance.
         console.log("Login is trying to get web3");
         await getWeb3()
-            .then((response) => {
-                console.log("Log in got it");
-                this.setState({redirect: true});
-            });
-        };
+                .then((response) => {
+                    console.log("Log in got it");
+                    this.setState({redirect: true});
+                });
+    };
+
+    startLogout = async () => {
+        //Here we need to Logout
+        //this includes probably removing the web3 instance on the window
+        //setting the logout context to false
+        console.log("Navbar is trying to log out");
+
+    };
 
 
-
-    render() {
+        render() {
+        //console.log(this.context);
+        const {isLoggedIn} = this.context;
 
         const EthgardenAppBar = styled(AppBar)({
             background: '#81C784',
@@ -60,40 +71,68 @@ import Main from "./Main"
             //return <Main dataFromParent = {this.state.redirect} />;
 
             this.setState({redirect: false});
-
             return <Redirect to={{
                 pathname: '/Home',
             }} />;
+        }
 
 
+        if (isLoggedIn){
+            console.log("navbar says we're LOGGEDIN");
+            return (
+
+                <div style={{
+                    //position: 'absolute', left: '50%', top: '50%',
+                    // transform: 'translate(-50%, -50%)'
+                }} className="App">
+                    <div>
+                        <EthgardenAppBar color="primary" position="static">
+                            <Toolbar>
+                                <Link to='/'><h3 style={{position: 'absolute', left: '8px', top: '8px', color: 'white'}}>Ethgarden.io</h3> </Link>
+                                <Button id="loginButton" onClick = {this.startLogout} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '8px', outline: 'none', color: 'white', borderColor: 'none'}}>
+                                    LOGOUT
+                                </Button>
+
+                            </Toolbar>
+                        </EthgardenAppBar>
+
+                    </div>
+                </div>
+            );
+        }
+        else if (isLoggedIn === false){
+            console.log("navbar says we're LOGGEDOUT");
+            return (
+
+                <div style={{
+                    //position: 'absolute', left: '50%', top: '50%',
+                    // transform: 'translate(-50%, -50%)'
+                }} className="App">
+                    <div>
+                        <EthgardenAppBar color="primary" position="static">
+                            <Toolbar>
+                                <Link to='/'><h3 style={{position: 'absolute', left: '8px', top: '8px', color: 'white'}}>Ethgarden.io</h3> </Link>
+                                <Button id="loginButton" variant="outlined" onClick = {this.startLogin} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '8px', outline: 'none', color: 'white', borderColor: 'white'}}>
+                                    <SportsEsportsIcon style={{position: 'relative', left: '-8px'}}/>
+                                    Login
+                                </Button>
+
+                            </Toolbar>
+                        </EthgardenAppBar>
+
+                    </div>
+                </div>
+            );
         }
 
 
 
+        //Here i need to get some info from the React Context API.
+        //The point of this is to not have to go Prop drilling between react components
+        //the Context API is lighter than the REDUX API
 
+        }
 
-        return (
-
-            <div style={{
-                //position: 'absolute', left: '50%', top: '50%',
-                // transform: 'translate(-50%, -50%)'
-            }} className="App">
-                <div>
-                    <EthgardenAppBar color="primary" position="static">
-                        <Toolbar>
-                            <Link to='/'><h3 style={{position: 'absolute', left: '8px', top: '8px', color: 'white'}}>Ethgarden.io</h3> </Link>
-                             <Button id="loginButton" variant="outlined" onClick = {this.startLogin} style={{boxShadow: "none", position: 'absolute', right: '1px', top: '8px', outline: 'none', color: 'white', borderColor: 'white'}}>
-                                <SportsEsportsIcon style={{position: 'relative', left: '-8px'}}/>
-                                Login
-                            </Button>
-
-                        </Toolbar>
-                    </EthgardenAppBar>
-
-                </div>
-            </div>
-        );
-    }
 }
 
 export default Navbar;

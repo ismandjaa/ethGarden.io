@@ -1,31 +1,27 @@
 import React, { Component } from "react";
-import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import { styled } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import 'bootstrap/dist/css/bootstrap.css'
 import {BrowserRouter as Router, Redirect, Link} from 'react-router-dom';
-//IMPORT REACT-ROUTER HERE.
-//import { Route, Redirect } from 'react-router'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
 import axios from "axios";
-import SimpleStorageContract from "../contracts/SimpleStorage";
+import {TokenContext} from "../contexts/TokenContext";
+
+
 class Home extends Component {
 
+    static contextType = TokenContext;
 
-    state = { storageValue: 0, web3: null, accounts: null, contract: null, signature: null, nonce: null };
+
+    state = { storageValue: 0, web3: null, accounts: null, contract: null, signature: null, nonce: null, accessToken: null, refreshToken: null };
 
     componentDidMount = async () => {
         console.log(this.state.accounts);
 
 
-
         try {
             // Get network provider and web3 instance.
             const web3 = await getWeb3();
-
 
             // Use web3 to get the user's accounts.
             const accounts = await web3.eth.getAccounts();
@@ -33,16 +29,15 @@ class Home extends Component {
             // Set web3, accounts, and contract to the state, and then proceed with an
             // example of interacting with the contract's methods.
 
-
-
-
             // console.log(signature + " hello");
             // this.setState({ signature, web3, accounts });
             // console.log(this.state.accounts);
 
-            const currentApi = "https://ethgarden.pythonanywhere.com";
+            const currentApi = "http://139.59.135.10:8000/";
 
-            const nonce = await axios.get(currentApi + '/users/'+ accounts)
+            const self = this;
+
+            const nonce = await axios.get(currentApi + 'users/'+ accounts)
                 .then(async response => {
 
                     console.log("user found, signing what's retrieved");
@@ -53,10 +48,21 @@ class Home extends Component {
                     console.log(response.data.nonce.toString());
                     console.log("checksum:");
                     console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
-                    axios.post(`https://ethgarden.pythonanywhere.com/api/tokensig/`, { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
                             console.log("tokens received:");
                             console.log(response.data);
+                            const refreshToken = response.data.refresh;
+                            const accessToken = response.data.access;
+                            this.setState({refreshToken: refreshToken, accessToken: accessToken });
+
+                            const {setAccessToken, setRefreshToken} = this.context;
+                            setAccessToken(accessToken);
+                            setRefreshToken(refreshToken);
+
+                            console.log(this.context)
+
+
                         });
 
 
@@ -64,14 +70,23 @@ class Home extends Component {
                     console.log(error);
                     const signature = await web3.eth.personal.sign("Ethgarden login nonce: 1", web3.currentProvider.selectedAddress, "greattesting");
 
-                    axios.post(`https://ethgarden.pythonanywhere.com/api/tokensig/`, { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
                             console.log("tokens received:");
                             console.log(response.data);
+                            const refreshToken = response.data.refresh;
+                            const accessToken = response.data.access;
+
+                            self.setState({refreshToken: refreshToken, accessToken: accessToken });
+
+                            const {setAccessToken, setRefreshToken} = self.context;
+                            setAccessToken(accessToken);
+                            setRefreshToken(refreshToken);
+
+                            console.log(self.context)
                         });
                 });
 
-            this.setState({accounts: accounts});
 
         } catch (error) {
             // Catch any errors for any of the above operations.
@@ -84,34 +99,50 @@ class Home extends Component {
 
     };
 
+    axiosPost = async () => {
+
+        const web3 = await getWeb3();
+
+        const currentApi = "http://139.59.135.10:8000/";
+
+        console.log("FUCK YOU");
+
+        const config = {
+            headers: {'Authorization': "bearer " + this.context.accessToken}
+        };
+
+        await axios.get(currentApi + "badges/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
+            .then(response => {
+                console.log(response);
+            });
+
+    };
+
 
 
     render() {
                 //here i need to do something like: if data is available show data
         //otherwise default to spinner and loading.
 
-        if (this.state.accounts != null) {
-
             return (
                 <div style={{}} className="Home">
 
                     <div style={{
-                        position: 'absolute', left: '50%', top: '30%',
-                        transform: 'translate(-50%, -50%)'
+                        position: 'relative', left: '0%', top: '30%',
+
+                        //before userNavbar:
+                        //position: 'absolute', left: '50%', top: '30%',
+                        //transform: 'translate(-50%, -50%)'
                     }}>
-                        <h1>Logged In!</h1>
+                        <h1>Plants:</h1>
 
                         <p>
-                            This is your current working account:
+                            These are your plants:
                         </p>
                         <h5>{this.state.accounts}</h5>
 
-                        <p>
-                            You now have access to the shop!
-                        </p>
-
-
-                        <Link to="/Shop"><Button variant="outline-primary"   >Ethgarden Shop</Button></Link>
+                        <p>shop button:</p>
+                        <Button variant="outline-primary" onClick = {this.axiosPost} >Ethgarden Shop</Button>
 
                     </div>
                 </div>
@@ -121,32 +152,5 @@ class Home extends Component {
 
         }
 
-        else if (this.state.accounts == null){
-            return (
-                <div style={{}} className="Home">
-
-                    <div style={{
-                        position: 'absolute', left: '50%', top: '30%',
-                        transform: 'translate(-50%, -50%)'
-                    }}>
-                        <h1>Loading</h1>
-                        <div style={{
-                            position: 'absolute', left: '50%', top: '120%',
-                            transform: 'translate(-50%, -50%)'
-                        }}>
-
-                            <Spinner animation="border" role="status">
-                                <span className="sr-only">Loading...</span>
-                            </Spinner>
-                        </div>
-
-                    </div>
-                </div>
-
-            );
-        }
-
-
-    }
 }
 export default Home;
