@@ -1,4 +1,4 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { Component, useContext, useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 
+
 import {LoginContext} from "../contexts/LoginContext";
+import axios from "axios";
+import getWeb3 from "../utils/getWeb3";
 
 const useStyles = makeStyles({
     card: {
@@ -24,9 +27,57 @@ const useStyles = makeStyles({
     },
 });
 
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => ++value); // update the state to force render
+}
+
+const plants = [
+
+];
 
 export default function MyGarden() {
     const classes = useStyles();
+
+
+
+
+    const forceUpdate = useForceUpdate();
+
+    function emptyPlants() {
+        //empties plant array
+        plants.length = 0;
+    }
+
+    useEffect( () => {
+        // Your code here
+        async function getMyPlants() {
+
+            const web3 = await getWeb3();
+            const currentApi = "http://134.209.225.213/";
+            //console.log("You have this many plants:");
+
+            await axios.get(currentApi + "plants/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
+                .then(response => {
+                    //console.log(response.data);
+                    const elements = response.data;
+                    emptyPlants();
+
+
+                    for (const [plant_id, owner] of elements.entries()) {
+                        //console.log(plant_id, owner);
+                        plants.push(owner);
+                    }
+                    console.log({plants});
+                    forceUpdate();
+
+                });
+
+
+        }
+        getMyPlants();
+    }, []);
+
 
 
     return (
@@ -37,287 +88,39 @@ export default function MyGarden() {
             justify="flex-start"
             alignItems="center"
         >
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="325"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-            <Grid item lg={2}>
-                <Card className={classes.card}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            alt="nice plant"
-                            height="325"
-                            width="225"
-                            image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
-                            title="smallplant"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Lizard
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                        </Button>
-                    </CardActions>
-                </Card>
-            </Grid>
-
-
+                {plants.map((plant_id) => {
+                    return <Grid item lg={2} key={plant_id.plant_id}>
+                        <Card className={classes.card}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="nice plant"
+                                height="325"
+                                width="225"
+                                image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
+                                title="smallplant"
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    #{plant_id.plant_id}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    This is plant #{plant_id.plant_id}, it is worth {plant_id.value/10000000000000000} ETH,
+                                    It is currently producing {plant_id.greens_per_block} "greens" per block!
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions>
+                            <Button size="small" color="primary">
+                                Share
+                            </Button>
+                            <Button size="small" color="primary">
+                                Learn More
+                            </Button>
+                        </CardActions>
+                    </Card>
+                    </Grid>
+                })}
 
         </Grid>
 

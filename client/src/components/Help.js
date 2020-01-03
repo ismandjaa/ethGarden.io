@@ -24,7 +24,7 @@ class Help extends Component {
 
 
 
-    axiosPost = async () => {
+    getGreens = async () => {
 
         const web3 = await getWeb3();
 
@@ -38,7 +38,83 @@ class Help extends Component {
 
         await axios.get(currentApi + "users/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress) + "/greens")
             .then(response => {
-                console.log(response);
+                console.log(response.data.greens);
+            });
+
+    };
+
+    getPlants = async () => {
+
+        const web3 = await getWeb3();
+
+        const currentApi = "http://134.209.225.213/";
+
+        console.log("Here are your plants:");
+
+        const config = {
+            headers: {'Authorization': "bearer " + this.context.accessToken}
+        };
+
+        await axios.get(currentApi + "plants/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
+            .then(response => {
+                console.log(response.data);
+            });
+
+    };
+
+    getAvailableBadges = async () => {
+
+        const web3 = await getWeb3();
+
+        const currentApi = "http://134.209.225.213/";
+
+        console.log("Here are the available badges:");
+
+        const config = {
+            headers: {'Authorization': "bearer " + this.context.accessToken}
+        };
+
+        await axios.get(currentApi + "badges/")
+            .then(response => {
+                console.log(response.data);
+            });
+
+    };
+
+    getMyBadges = async () => {
+
+        const web3 = await getWeb3();
+
+        const currentApi = "http://134.209.225.213/";
+
+        console.log("Here are your badges:");
+
+        const config = {
+            headers: {'Authorization': "bearer " + this.context.accessToken}
+        };
+
+        await axios.get(currentApi + "badges/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
+            .then(response => {
+                console.log(response.data);
+            });
+
+    };
+
+    claimBadge = async () => {
+
+        const web3 = await getWeb3();
+
+        const currentApi = "http://134.209.225.213/";
+
+        console.log("Here are your badges:");
+
+        const config = {
+            headers: {'Authorization': "bearer " + this.context.accessToken}
+        };
+
+        await axios.get(currentApi + "badges/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
+            .then(response => {
+                console.log(response.data);
             });
 
     };
@@ -60,7 +136,10 @@ class Help extends Component {
                     }}>
                         <h1>Help!</h1>
 
-                        <Button variant="outline-primary" onClick = {this.axiosPost} >See Greens</Button>
+                        <Button variant="outline-primary" onClick = {this.getGreens} >See Greens</Button>
+                        <Button variant="outline-primary" onClick = {this.getPlants} >See Plants</Button>
+                        <Button variant="outline-primary" onClick = {this.getAvailableBadges} >See all badges</Button>
+                        <Button variant="outline-primary" onClick = {this.getMyBadges} >See my badges</Button>
 
                     </div>
                 </div>
