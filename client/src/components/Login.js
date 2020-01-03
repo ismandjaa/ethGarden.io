@@ -3,53 +3,83 @@ import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
 import SimpleStorageContract from "../contracts/SimpleStorage";
+import {TokenContext} from "../contexts/TokenContext";
+import axios from "axios";
 
 class Login extends Component {
 
-    state = { storageValue: 0, web3: null, accounts: null, contract: null };
+    static contextType = TokenContext;
+
+
+    state = { storageValue: 0, web3: null, accounts: null, contract: null, signature: null, nonce: null, accessToken: null, refreshToken: null };
 
     componentDidMount = async () => {
 
+
         try {
             // Get network provider and web3 instance.
-            console.log("lets login");
             const web3 = await getWeb3();
-
             // Use web3 to get the user's accounts.
             const accounts = await web3.eth.getAccounts();
-            console.log(accounts);
 
-            // Get the contract instance.
-            const networkId = await web3.eth.net.getId();
-            const deployedNetwork = SimpleStorageContract.networks[networkId];
-            const instance = new web3.eth.Contract(
-                SimpleStorageContract.abi,
-                deployedNetwork && deployedNetwork.address,
-            );
+            const currentApi = "http://134.209.225.213/";
 
-            // Set web3, accounts, and contract to the state, and then proceed with an
-            // example of interacting with the contract's methods.
-            this.setState({ web3, accounts, contract: instance }, this.runExample);
+            const self = this;
+
+            const nonce = await axios.get(currentApi + 'users/'+ accounts)
+                .then(async response => {
+
+                    console.log("user found, signing what's retrieved:");
+                    console.log(response.data.nonce);
+                    const signature = await web3.eth.personal.sign("Ethgarden login nonce: " + response.data.nonce.toString(), web3.currentProvider.selectedAddress, "greattesting");
+                    console.log(signature);
+                    console.log(response.data.nonce.toString());
+                    console.log("checksum:");
+                    console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
+                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                        .then(response => {
+                            console.log("tokens received:");
+                            console.log(response.data);
+                            const refreshToken = response.data.refresh;
+                            const accessToken = response.data.access;
+                            this.setState({refreshToken: refreshToken, accessToken: accessToken });
+
+                            const {setAccessToken, setRefreshToken} = this.context;
+                            setAccessToken(accessToken);
+                            setRefreshToken(refreshToken);
+
+                        });
+
+
+                }).catch(async function(error) {
+                    console.log(error);
+                    console.log("user not found signing 1");
+                    const signature = await web3.eth.personal.sign("Ethgarden login nonce: 1", web3.currentProvider.selectedAddress, "greattesting");
+
+                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                        .then(response => {
+                            console.log("tokens received:");
+                            console.log(response.data);
+                            const refreshToken = response.data.refresh;
+                            const accessToken = response.data.access;
+
+                            self.setState({refreshToken: refreshToken, accessToken: accessToken });
+
+                            const {setAccessToken, setRefreshToken} = self.context;
+                            setAccessToken(accessToken);
+                            setRefreshToken(refreshToken);
+                        });
+                });
+
         } catch (error) {
             // Catch any errors for any of the above operations.
             alert(
-                `Failed to load web3, accounts, or contract. Check console for details.`,
+                `reload page please`,
             );
             console.error(error);
         }
     };
-    signLogin = async () => {
-        const { web3 } = this.state;
-        const signed = null;
-        //const accounts = await web3.eth.getAccounts();
-        const account = await web3.currentProvider.selectedAddress;
-        web3.eth.personal.sign(account, web3.currentProvider.selectedAddress, "greattesting", getit())
-            .then(console.log, getit());
 
-        function getit(callback){
-            console.log("was called" + callback);
-        }
-    };
     render() {
         return (
 

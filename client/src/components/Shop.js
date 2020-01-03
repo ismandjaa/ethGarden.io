@@ -6,10 +6,11 @@ import getWeb3 from "../utils/getWeb3";
 import PlantBase from "../contracts/PlantBase";
 
 import {PageContext} from "../contexts/PageContext";
+import {LoginContext} from "../contexts/LoginContext";
 
 class Shop extends Component {
 
-    static contextType = PageContext;
+    static contextType = LoginContext;
 
     state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
@@ -31,8 +32,6 @@ class Shop extends Component {
             // example of interacting with the contract's methods.
             this.setState({ web3, accounts, contract: instance }, this.runExample);
 
-            const {setPage} = this.context;
-            setPage("Shop");
 
 
         } catch (error) {

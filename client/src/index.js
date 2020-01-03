@@ -7,10 +7,11 @@ import Home from './components/Home';
 
 import { BrowserRouter as Router} from 'react-router-dom';
 import Ethgarden from "./components/Ethgarden";
+import LoginContextProvider from "./contexts/LoginContext";
 
 //ReactDOM.render(<Router><App />,document.getElementById('root')</Router>);
 
-ReactDOM.render((<Router><Ethgarden /></Router>),document.getElementById('root'));
+ReactDOM.render((<Router><LoginContextProvider><Ethgarden /></LoginContextProvider></Router>),document.getElementById('root'));
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 

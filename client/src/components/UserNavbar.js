@@ -27,6 +27,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import HelpIcon from '@material-ui/icons/Help';
 import Button from "@material-ui/core/Button";
+import {LoginContext} from "../contexts/LoginContext";
 
 
 const drawerWidth = 240;
@@ -135,13 +136,14 @@ export default function MiniDrawer() {
 
     };
 
-    const { page } = useContext(PageContext);
+    const handleLogout = () => {
 
-    const getPage = () => {
-        return(
-            page
-        )
+        //probably remove access and refresh tokens
+
+        toggleLoginFalse();
+
     };
+    const {toggleLoginFalse} = useContext(LoginContext);
 
 
 
@@ -158,7 +160,7 @@ export default function MiniDrawer() {
                 }}
             >
                 <Toolbar>
-                    <Button id="loginButton" onClick = {handleHelp} style={{boxShadow: "none", position: 'absolute', right: '15px', top: '15px', outline: 'none', color: 'white', borderColor: 'none'}}>
+                    <Button id="loginButton" onClick = {handleLogout} style={{boxShadow: "none", position: 'absolute', right: '15px', top: '15px', outline: 'none', color: 'white', borderColor: 'none'}}>
                         LOGOUT
                     </Button>
                     <IconButton
@@ -173,7 +175,7 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        {getPage()}
+                        {window.location.pathname.substr(1)}
                     </Typography>
                 </Toolbar>
             </AppBar>

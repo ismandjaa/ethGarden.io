@@ -1,7 +1,7 @@
 import React, {Component, createContext} from 'react';
 
 export const PageContext = createContext();
-
+//NOW OUTDATED
 class PageContextProvider extends Component {
     state = {
         page: "My Garden"
