@@ -108,10 +108,10 @@ export default function MiniDrawer() {
 
     };
 
-    const handleHome = () => {
+    const handleGarden = () => {
         setOpen(false);
         console.log("trying to redirect");
-        history.push("/Home");
+        history.push("/Garden");
 
     };
 
@@ -175,7 +175,7 @@ export default function MiniDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        {window.location.pathname.substr(1)}
+                         {window.location.pathname.substr(1) || "Garden"}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -206,7 +206,7 @@ export default function MiniDrawer() {
 
 
                 <List>
-                    <ListItem button onClick={handleHome}>
+                    <ListItem button onClick={handleGarden}>
                         <ListItemIcon>{<LocalFloristIcon />}</ListItemIcon>
                         <ListItemText primary={"My garden"} />
                     </ListItem>

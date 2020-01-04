@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
+import Garden from './Garden'
 import Shop from './Shop'
 import Welcome from './Welcome'
 import Login from './Login'
@@ -18,9 +18,9 @@ const Main = () => (
     <main>
 
         <Switch>
-            <Route exact path='/' component={Achievements}/>
+            <Route exact path='/' component={Garden}/>
             <Route exact path='/Shop' component={Shop}/>
-            <Route exact path='/Home' component={Home}/>
+            <Route exact path='/Garden' component={Garden}/>
             <Route exact path='/Login' component={Login}/>
             <Route exact path='/Help' component={Help}/>
             <Route exact path='/Achievements' component={Achievements}/>

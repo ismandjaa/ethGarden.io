@@ -8,12 +8,51 @@ import PlantBase from "../contracts/PlantBase";
 import {PageContext} from "../contexts/PageContext";
 import {LoginContext} from "../contexts/LoginContext";
 
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+
 class Shop extends Component {
 
     static contextType = LoginContext;
 
-    state = { storageValue: 0, web3: null, accounts: null, contract: null };
+    state = { storageValue: 0, web3: null, accounts: null, contract: null, open: false };
 
+    handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
+    getInput = async () => {
+
+        this.setState({ open: false });
+        const price = document.getElementById("finalPrice").value;
+        console.log("this is the price: " + price + " eth");
+
+        const { accounts, contract } = this.state;
+
+        const PurchaseValue = price * 1000000000000000000;
+        //get this from user
+        const shippingFee = await contract.methods.shippingFee().call();
+
+        const value = +PurchaseValue + +shippingFee;
+
+        const options = {from: accounts[0], value: value};
+
+        const test = contract.methods.mint().send(options )
+            .on('receipt', function(receipt) {
+                // receipt example
+                console.log(receipt);
+            })
+
+    };
 
     componentDidMount = async () => {
         try {
@@ -28,10 +67,11 @@ class Shop extends Component {
                 "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
             );
 
+
+
             // Set web3, accounts, and contract to the state, and then proceed with an
             // example of interacting with the contract's methods.
-            this.setState({ web3, accounts, contract: instance }, this.runExample);
-
+            this.setState({ web3, accounts, contract: instance });
 
 
         } catch (error) {
@@ -61,6 +101,15 @@ class Shop extends Component {
         })
     };
 
+    promptDialog = async () => {
+
+        this.handleClickOpen();
+        console.log();
+
+    };
+
+
+
 
     render() {
         return (
@@ -76,9 +125,39 @@ class Shop extends Component {
                         Welcome to the ethgarden shop!
                     </p>
 
-                    <Button variant="outline-primary" onClick = {this.buyPlant} >Buy Plant</Button><Button variant="outline-primary"   >Refund Plant</Button><Button variant="outline-primary"   >boom</Button>
+                    <Button variant="outline-primary" onClick = {this.promptDialog} >Buy Plant</Button>
 
                 </div>
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="form-dialog-title"
+                >
+                    <DialogTitle id="form-dialog-title">Name your price</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Get a random plant with attributes matching your pricepoint.
+                            <br></br>
+                            This plant is refundable.
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="finalPrice"
+                            label="Price in ETH"
+                            type="price"
+                            halfwidth = "true"
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={this.getInput} color="primary">
+                            Buy plant
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
 
         );

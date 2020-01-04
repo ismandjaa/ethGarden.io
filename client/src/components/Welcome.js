@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
 import SimpleStorageContract from "../contracts/SimpleStorage";
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
 import {TokenContext} from "../contexts/TokenContext";

@@ -36,11 +36,9 @@ const plants = [
 
 ];
 
-export default function MyGarden() {
+export default function Garden() {
+
     const classes = useStyles();
-
-
-
 
     const forceUpdate = useForceUpdate();
 
@@ -105,8 +103,13 @@ export default function MyGarden() {
                                     #{plant_id.plant_id}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-                                    This is plant #{plant_id.plant_id}, it is worth {plant_id.value/10000000000000000} ETH,
+                                    This is plant #{plant_id.plant_id},
                                     It is currently producing {plant_id.greens_per_block} "greens" per block!
+                                    What a nice plant!
+                                </Typography>
+                                <br></br>
+                                <Typography gutterBottom variant="body1" color="textPrimary" component="p">
+                                    {plant_id.value/1000000000000000000} ETH
                                 </Typography>
                             </CardContent>
                         </CardActionArea>

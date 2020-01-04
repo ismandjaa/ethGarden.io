@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Home from './components/Home';
+import Home from './components/Garden';
 
 import { BrowserRouter as Router} from 'react-router-dom';
 import Ethgarden from "./components/Ethgarden";
