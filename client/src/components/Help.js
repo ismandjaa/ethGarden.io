@@ -15,7 +15,11 @@ import SimpleStorageContract from "../contracts/SimpleStorage";
 import Navbar from "./Navbar"
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import {LoginContext} from "../contexts/LoginContext";
+
+
 class Help extends Component {
+
+
 
     static contextType = LoginContext;
 
@@ -28,7 +32,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://134.209.225.213/";
+        const currentApi = "http://ethgarden.io/";
 
         console.log("Here are your greens:");
 
@@ -123,6 +127,7 @@ class Help extends Component {
     render() {
         //here i need to do something like: if data is available show data
         //otherwise default to spinner and loading.
+
 
             return (
                 <div style={{}} className="Help">

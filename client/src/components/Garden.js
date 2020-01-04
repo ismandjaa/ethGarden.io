@@ -76,6 +76,35 @@ export default function Garden() {
         getMyPlants();
     }, []);
 
+    function logPlantId(ev) {
+
+        const target = ev.currentTarget.querySelector('div').querySelector('h2').innerHTML.substr(1);
+        console.log(target);
+
+
+    }
+
+    function getPlantImg(plant_id) {
+
+    const images={
+        0:"https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg",
+        1: "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg",
+        2:"https://cloudinary-a.akamaihd.net/ufn/image/upload/biaxkijyvddm5zzrf9iq.jpg",
+        3:"https://images.homedepot-static.com/productImages/cd3c9e1b-e172-44ea-a03c-11052df95e7e/svn/house-plants-21917-64_1000.jpg",
+        4:"https://i.pinimg.com/originals/45/1c/41/451c41cae3e242aafeda0205b24b6109.jpg",
+        5:"https://media.gq.com/photos/5d1bc24d4b12140009c87b85/master/w_1280%2Cc_limit/ZZ-Plant.jpg",
+        6:"https://i.pinimg.com/originals/d0/9c/70/d09c703421083313a9bcf2fa20566708.jpg",
+        7:"https://www.tropicalplantsonline.com/assets/images/Golden-Pothos-Totem.jpg",
+        8:"https://www.ikea.com/gb/en/images/products/epipremnum-potted-plant-golden-pothos__0573935_PE667974_S5.JPG",
+        9:"https://www.easycare-plants.com/wp-content/uploads/2019/02/Dypsis-24-cm.jpg"
+    };
+
+    const image = images[plant_id.plant_id.charAt(plant_id.plant_id.length-1)];
+        return (
+
+            image
+        )
+    }
 
 
     return (
@@ -89,17 +118,17 @@ export default function Garden() {
                 {plants.map((plant_id) => {
                     return <Grid item lg={2} key={plant_id.plant_id}>
                         <Card className={classes.card}>
-                        <CardActionArea>
+                        <CardActionArea onClick = {logPlantId}>
                             <CardMedia
                                 component="img"
                                 alt="nice plant"
                                 height="325"
                                 width="225"
-                                image= "https://cgaxisimg.ams3.cdn.digitaloceanspaces.com/2014/10/23a-copy1.jpg"
+                                image= {getPlantImg(plant_id)}
                                 title="smallplant"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography gutterBottom variant="h5" component="h2" id="plantId">
                                     #{plant_id.plant_id}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
