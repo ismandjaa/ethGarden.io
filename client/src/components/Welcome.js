@@ -77,7 +77,7 @@ class Welcome extends Component {
                     console.log("user not found signing 1");
                     const signature = await web3.eth.personal.sign("Ethgarden login nonce: 1", web3.currentProvider.selectedAddress, "greattesting");
 
-                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                    axios.post(currentApi + 'tokensig/', { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
                             console.log("tokens received:");
                             console.log(response.data);

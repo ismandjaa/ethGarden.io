@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b2f0ae7-2139-4cd9-804f-b11481992e7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/components/Garden.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Garden.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Plant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Plant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UserNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/contexts/LoginContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/contexts/LoginContext.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,13 +57,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="28894" />
+          <entry key="js" value="28895" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="28894" />
+          <entry key="JavaScript" value="28895" />
         </counts>
       </usages-collector>
     </session>
@@ -108,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Plant.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="780">
@@ -120,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Welcome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+            <state relative-caret-position="494">
+              <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -192,8 +187,8 @@
         <option value="$PROJECT_DIR$/client/src/components/Main.js" />
         <option value="$PROJECT_DIR$/client/src/components/Garden.js" />
         <option value="$PROJECT_DIR$/client/src/components/UserNavbar.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Welcome.js" />
         <option value="$PROJECT_DIR$/client/src/components/Plant.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Welcome.js" />
       </list>
     </option>
   </component>
@@ -218,8 +213,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1714" />
-    <option name="y" value="258" />
+    <option name="x" value="-2568" />
+    <option name="y" value="250" />
     <option name="width" value="867" />
     <option name="height" value="1407" />
   </component>
@@ -278,7 +273,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578233578728" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578234503059" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -337,12 +332,12 @@
       <workItem from="1576580319449" duration="2263000" />
       <workItem from="1576836316529" duration="11992000" />
       <workItem from="1577534048404" duration="29151000" />
-      <workItem from="1577613516208" duration="107544000" />
+      <workItem from="1577613516208" duration="108217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296427000" />
+    <option name="totallyTimeSpent" value="297100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2568" y="250" width="2576" height="1416" extended-state="6" />
@@ -628,22 +623,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Welcome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Plant.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Welcome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
