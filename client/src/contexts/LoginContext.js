@@ -8,7 +8,8 @@ class LoginContextProvider extends Component {
         spinner: false,
         accessToken: false,
         refreshToken: false,
-        page: "My Garden"
+        page: "My Garden",
+        selectedPlant: false
     };
 
     toggleLoginTrue = () => {
@@ -29,12 +30,15 @@ class LoginContextProvider extends Component {
     setRefreshToken = (token) => {
         this.setState({refreshToken: token});
     };
+    setSelectedPlant = (plant) => {
+        this.setState({selectedPlant: plant});
+    };
     setPage = (page) => {
         this.setState({page: page});
     };
     render(){
         return (
-            <LoginContext.Provider value={{...this.state, toggleLoginTrue: this.toggleLoginTrue, toggleLoginFalse: this.toggleLoginFalse, toggleSpinnerTrue: this.toggleSpinnerTrue, toggleSpinnerFalse: this.toggleSpinnerFalse, setAccessToken: this.setAccessToken, setRefreshToken: this.setRefreshToken, setPage: this.setPage }}>
+            <LoginContext.Provider value={{...this.state, toggleLoginTrue: this.toggleLoginTrue, toggleLoginFalse: this.toggleLoginFalse, toggleSpinnerTrue: this.toggleSpinnerTrue, toggleSpinnerFalse: this.toggleSpinnerFalse, setAccessToken: this.setAccessToken, setRefreshToken: this.setRefreshToken, setPage: this.setPage, setSelectedPlant: this.setSelectedPlant }}>
                 {this.props.children}
             </LoginContext.Provider>
         );

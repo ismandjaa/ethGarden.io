@@ -29,7 +29,6 @@ import HelpIcon from '@material-ui/icons/Help';
 import Button from "@material-ui/core/Button";
 import {LoginContext} from "../contexts/LoginContext";
 
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -143,8 +142,8 @@ export default function MiniDrawer() {
         toggleLoginFalse();
 
     };
-    const {toggleLoginFalse} = useContext(LoginContext);
 
+    const {toggleLoginFalse} = useContext(LoginContext);
 
 
     return (

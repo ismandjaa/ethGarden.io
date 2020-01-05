@@ -41,7 +41,7 @@ class Welcome extends Component {
             // Use web3 to get the user's accounts.
             const accounts = await web3.eth.getAccounts();
 
-            const currentApi = "http://134.209.225.213/";
+            const currentApi = "https://ethgarden.io/api/";
 
             const self = this;
 
@@ -54,7 +54,7 @@ class Welcome extends Component {
                     console.log(signature);
                     console.log("checksum:");
                     console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
-                    axios.post(currentApi + 'api/tokensig/', { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
+                    axios.post(currentApi + 'tokensig/', { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
                             console.log("tokens received:");
                             console.log(response.data);

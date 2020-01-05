@@ -11,11 +11,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-
-
 import {LoginContext} from "../contexts/LoginContext";
+
 import axios from "axios";
 import getWeb3 from "../utils/getWeb3";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
     card: {
@@ -38,7 +38,11 @@ const plants = [
 
 export default function Garden() {
 
+    const {setSelectedPlant} = useContext(LoginContext);
+
     const classes = useStyles();
+
+    let history = useHistory();
 
     const forceUpdate = useForceUpdate();
 
@@ -52,7 +56,7 @@ export default function Garden() {
         async function getMyPlants() {
 
             const web3 = await getWeb3();
-            const currentApi = "http://134.209.225.213/";
+            const currentApi = "https://ethgarden.io/api/";
             //console.log("You have this many plants:");
 
             await axios.get(currentApi + "plants/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
@@ -76,10 +80,18 @@ export default function Garden() {
         getMyPlants();
     }, []);
 
-    function logPlantId(ev) {
+    function redirectToPlant(ev) {
 
         const target = ev.currentTarget.querySelector('div').querySelector('h2').innerHTML.substr(1);
         console.log(target);
+
+        setSelectedPlant(target);
+
+        console.log("trying to redirect to plant");
+        history.push("/Plant");
+
+        //here i need to change context to the target
+        //and then redirect to plant route.
 
 
     }
@@ -118,7 +130,7 @@ export default function Garden() {
                 {plants.map((plant_id) => {
                     return <Grid item lg={2} key={plant_id.plant_id}>
                         <Card className={classes.card}>
-                        <CardActionArea onClick = {logPlantId}>
+                        <CardActionArea onClick = {redirectToPlant}>
                             <CardMedia
                                 component="img"
                                 alt="nice plant"

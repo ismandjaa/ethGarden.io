@@ -6,7 +6,9 @@ import Welcome from './Welcome'
 import Login from './Login'
 import Help from './Help'
 import Achievements from './Achievements'
+import Plant from './Plant'
 import Navbar from './Navbar'
+
 
 
 // The Main component renders one of the three provided
@@ -24,6 +26,7 @@ const Main = () => (
             <Route exact path='/Login' component={Login}/>
             <Route exact path='/Help' component={Help}/>
             <Route exact path='/Achievements' component={Achievements}/>
+            <Route exact path='/Plant' component={Plant}/>
 
             // add more routes here
         </Switch>
