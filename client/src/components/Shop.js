@@ -31,7 +31,6 @@ class Shop extends Component {
     };
 
     getInput = async () => {
-
         this.setState({ open: false });
         const price = document.getElementById("finalPrice").value;
         console.log("this is the price: " + price + " eth");
@@ -66,9 +65,6 @@ class Shop extends Component {
                 PlantBase.abi,
                 "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
             );
-
-
-
             // Set web3, accounts, and contract to the state, and then proceed with an
             // example of interacting with the contract's methods.
             this.setState({ web3, accounts, contract: instance });
