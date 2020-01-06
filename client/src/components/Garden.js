@@ -19,7 +19,7 @@ import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
     card: {
-        //minWidth: 200,
+        //minWidth: 300,
         maxWidth: 345,
     },
     media: {
@@ -128,7 +128,7 @@ export default function Garden() {
             alignItems="center"
         >
                 {plants.map((plant_id) => {
-                    return <Grid item lg={2} key={plant_id.plant_id}>
+                    return <Grid item lg={3} key={plant_id.plant_id}>
                         <Card className={classes.card}>
                         <CardActionArea onClick = {redirectToPlant}>
                             <CardMedia

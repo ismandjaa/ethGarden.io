@@ -24,11 +24,13 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles({
     card: {
         maxHeight: 1080,
         minWidth: 500,
+        maxWidth: 1000,
     },
     media: {
         height: 400,
@@ -37,7 +39,7 @@ const useStyles = makeStyles({
 
     table: {
         minWidth: 400,
-        maxWidth: 400,
+        maxWidth: 700,
     }
 });
 
@@ -169,20 +171,13 @@ export default function Plant() {
     return (
 
 
-        <Grid
-            container spacing={1}
-            direction="row"
-            alignContent="left"
-
-        >
-
-            <Grid item lg={2} >
-                <IconButton onClick={handleBack}>
-                    <ChevronLeftIcon />
-                </IconButton>
+        <div align="center">
+            <IconButton onClick={handleBack}>
+                <ChevronLeftIcon />
+            </IconButton>
                 <Box pt={1} />
                 <Card className={classes.card} raised={false} align="center">
-                    <CardActionArea>
+                    <CardContent>
 
                             {getPlantImg() ? (
                                 <CardMedia
@@ -198,33 +193,52 @@ export default function Plant() {
 
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h1" align="center">
-                                #{getPlantId}
+                                Plant ID: #{getPlantId}
                             </Typography>
                             <Divider />
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>
+                            <br/>
                             <Table className={classes.table} aria-label="caption table">
                                 <TableBody>
 
                                         <TableRow>
-                                            <TableCell align="right">{getPlantId}</TableCell>
+                                            <TableCell align="left">Value:</TableCell>
+                                            <TableCell align="right">{getPlantValue/1000000000000000000} ETH</TableCell>
                                         </TableRow>
+                                        <TableRow>
+                                            <TableCell align="left">Greens Per Block:</TableCell>
+                                            <TableCell align="right">{getPlantGreensPerBlock}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell align="left">Plant ERC Address:</TableCell>
+                                            <TableCell align="right">{getPlantERC}</TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell align="left">Owner:</TableCell>
+                                            <TableCell align="right">{getPlantowner}</TableCell>
+                                        </TableRow>
+
+
 
                                 </TableBody>
                             </Table>
                         </CardContent>
-                    </CardActionArea>
+                    </CardContent>
                     <CardActions style={{justifyContent: 'flex-end'}}>
+                        <Fab variant="extended" style={{background: '#81C784', color: "white", }}>
+                            <SendIcon className={classes.extendedIcon} />
+                            TRANSFER
+                        </Fab>
                         <Fab variant="extended">
                             <AutorenewIcon className={classes.extendedIcon} />
                               REFUND
                         </Fab>
                     </CardActions>
                 </Card>
-            </Grid>
-        </Grid>
+        </div>
 
 
     );
