@@ -22,6 +22,24 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = theme => ({
+    card: {
+        maxWidth: 345,
+    },
+    title: {
+        fontSize: 14,
+    },
+    media: {
+        height: 140,
+        paddingTop: '56.25%', // 16:9
+    },
+    pos: {
+        marginBottom: 12,
+    },
+    });
 
 class Shop extends Component {
 
@@ -188,6 +206,7 @@ class Shop extends Component {
 
 
     render() {
+        const { classes } = this.props;
         return (
 
             <div style={{}} className="Shop">
@@ -200,13 +219,13 @@ class Shop extends Component {
 
 
                     <Grid
-                        container spacing={7}
+                        container lg={11} spacing={5}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                          <Grid item lg={3}>
-                              <Card>
+                          <Grid item xl={2}>
+                              <Card className={classes.card}>
                                     <CardActionArea onClick = {this.promptDialog2}>
                                         <CardMedia
                                             component="img"
@@ -231,8 +250,8 @@ class Shop extends Component {
                                     </CardActionArea>
                                     </Card>
                           </Grid>
-                            <Grid item lg={3}>
-                                <Card>
+                            <Grid item xl={2}>
+                                <Card className={classes.card}>
                                     <CardActionArea onClick = {this.promptDialog3}>
                                         <CardMedia
                                             component="img"
@@ -257,8 +276,8 @@ class Shop extends Component {
                                     </CardActionArea>
                                 </Card>
                             </Grid>
-                        <Grid item lg={3}>
-                            <Card>
+                        <Grid item xl={2}>
+                            <Card className={classes.card}>
                                 <CardActionArea onClick = {this.promptDialog1}>
                                     <CardMedia
                                         component="img"
@@ -273,7 +292,7 @@ class Shop extends Component {
                                             Custom
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary" component="p">
-                                            Choose your own price and see what happens!
+                                            Choose your own price and get attributes matching your price point!
                                         </Typography>
                                         <br></br>
                                         <Typography gutterBottom variant="body1" color="textPrimary" component="p">
@@ -370,4 +389,4 @@ class Shop extends Component {
         );
     }
 }
-export default Shop;
+export default withStyles(styles)(Shop);

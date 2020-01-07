@@ -122,13 +122,12 @@ export default function Garden() {
     return (
 
         <Grid
-            container spacing={1}
+            container lg={11} spacing={1}
             direction="row"
             justify="flex-start"
-            alignItems="center"
         >
                 {plants.map((plant_id) => {
-                    return <Grid item lg={3} key={plant_id.plant_id}>
+                    return <Grid item xl={2} key={plant_id.plant_id}>
                         <Card className={classes.card}>
                         <CardActionArea onClick = {redirectToPlant}>
                             <CardMedia
