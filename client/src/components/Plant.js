@@ -25,6 +25,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import SendIcon from '@material-ui/icons/Send';
+import PlantBase from "../contracts/PlantBase";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
+import Dialog from "@material-ui/core/Dialog";
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles({
     card: {
@@ -92,7 +99,6 @@ export default function Plant() {
             }
             else {
 
-                const web3 = await getWeb3();
                 const currentApi = "https://ethgarden.io/api/";
 
                 console.log("you are trying to get this plant: " + selectedPlant);
@@ -125,7 +131,7 @@ export default function Plant() {
     }, []);
 
 
-    const getPlantowner = (plantOwner[0]);
+    const getPlantOwner = (plantOwner[0]);
     const getPlantValue = (plantValue[0]);
     const getPlantId = (plantId[0]);
     const getPlantERC = (plantERC[0]);
@@ -167,9 +173,79 @@ export default function Plant() {
         }
     }
 
+    async function refundPlant(){
+
+        const price = 0.01;
+        console.log("this is the price: " + price + " eth");
+
+        const web3 = await getWeb3();
+        // Use web3 to get the user's accounts.
+        const accounts = await web3.eth.getAccounts();
+        // Get the contract instance.
+        const networkId = await web3.eth.net.getId();
+        const contract = new web3.eth.Contract(
+            PlantBase.abi,
+            "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
+        );
+
+        console.log(getPlantId);
+
+        const options = {from: accounts[0]};
+
+        contract.methods.refund(getPlantId).send(options)
+            .on('receipt', function(receipt) {
+                // receipt example
+                console.log(receipt);
+            })
+
+    }
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    async function getInput(){
+
+        setOpen(false);
+
+        const address = document.getElementById("ethAddress").value;
+
+        const web3 = await getWeb3();
+        // Use web3 to get the user's accounts.
+        const accounts = await web3.eth.getAccounts();
+        // Get the contract instance.
+        const networkId = await web3.eth.net.getId();
+        const contract = new web3.eth.Contract(
+            PlantBase.abi,
+            "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
+        );
+
+        console.log(getPlantId);
+
+        const options = {from: accounts[0]};
+
+        contract.methods.safeTransferFrom(getPlantOwner, address, getPlantId).send(options)
+            .on('receipt', function(receipt) {
+                // receipt example
+                console.log(receipt);
+            })
+
+
+
+
+
+    }
+
+
+
 
     return (
-
 
         <div align="center">
             <IconButton onClick={handleBack}>
@@ -218,7 +294,7 @@ export default function Plant() {
                                         </TableRow>
                                         <TableRow>
                                             <TableCell align="left">Owner:</TableCell>
-                                            <TableCell align="right">{getPlantowner}</TableCell>
+                                            <TableCell align="right">{getPlantOwner}</TableCell>
                                         </TableRow>
 
 
@@ -227,17 +303,42 @@ export default function Plant() {
                             </Table>
                         </CardContent>
                     </CardContent>
-                    <CardActions style={{justifyContent: 'flex-end'}}>
+                    <CardActions style={{justifyContent: 'flex-end'}} onClick = {handleClickOpen}>
                         <Fab variant="extended" style={{background: '#81C784', color: "white", }}>
-                            <SendIcon className={classes.extendedIcon} />
+                            <SendIcon className={classes.extendedIcon}/>
                             TRANSFER
                         </Fab>
-                        <Fab variant="extended">
-                            <AutorenewIcon className={classes.extendedIcon} />
+                        <Fab variant="extended" onClick = {refundPlant}>
+                            <AutorenewIcon className={classes.extendedIcon}/>
                               REFUND
                         </Fab>
                     </CardActions>
                 </Card>
+
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Transfer plant #{getPlantId}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To transfer this plant to a new address, please enter the address you want to transfer to:
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="ethAddress"
+                        label="Ethereum Address"
+                        type="Ethereum Address"
+                        fullWidth
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        CANCEL
+                    </Button>
+                    <Button onClick={getInput} color="primary">
+                        TRANSFER
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
 
 

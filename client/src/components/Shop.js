@@ -216,10 +216,8 @@ class Shop extends Component {
 
                     <br/>
 
-
-
                     <Grid
-                        container lg={11} spacing={5}
+                        container xl={11} spacing={5}
                         direction="row"
                         justify="center"
                         alignItems="center"

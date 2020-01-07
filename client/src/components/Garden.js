@@ -122,7 +122,7 @@ export default function Garden() {
     return (
 
         <Grid
-            container lg={11} spacing={1}
+            container xl={11} spacing={1}
             direction="row"
             justify="flex-start"
         >
