@@ -341,31 +341,7 @@ export default function Plant() {
                     </Button>
                 </DialogActions>
             </Dialog>
-
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Transfer plant #{getPlantId}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        To transfer this plant to a new address, please enter the address you want to transfer to:
-                    </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="ethAddress"
-                        label="Ethereum Address"
-                        type="Ethereum Address"
-                        fullWidth
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        CANCEL
-                    </Button>
-                    <Button onClick={getInput} color="primary">
-                        TRANSFER
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            
 
         </div>
 
