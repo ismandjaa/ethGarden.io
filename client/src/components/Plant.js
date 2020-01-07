@@ -67,6 +67,8 @@ const plantERC = [];
 
 const plantGreensPerBlock = [];
 
+
+//THIS SHOULD BE A CLASS COMPONENT INSTEAD OF FUNCTIONAL COMPONENT AS STATE IS NEEDED FOR DIFFERENT DIALOGS
 export default function Plant() {
     const classes = useStyles();
 
@@ -86,6 +88,7 @@ export default function Plant() {
         plantERC.length = 0;
         plantGreensPerBlock.length = 0;
     };
+
 
     useEffect( () => {
         // Your code here
@@ -173,10 +176,22 @@ export default function Plant() {
         }
     }
 
-    async function refundPlant(){
 
-        const price = 0.01;
-        console.log("this is the price: " + price + " eth");
+    const [open, setOpen, ] = React.useState(false);
+
+    let [refundDialog] = React.useState(false);
+
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+    async function refundPlant(){
 
         const web3 = await getWeb3();
         // Use web3 to get the user's accounts.
@@ -200,19 +215,10 @@ export default function Plant() {
 
     }
 
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
 
     async function getInput(){
 
-        setOpen(false);
+        handleClose();
 
         const address = document.getElementById("ethAddress").value;
 
@@ -235,10 +241,6 @@ export default function Plant() {
                 // receipt example
                 console.log(receipt);
             })
-
-
-
-
 
     }
 
@@ -303,8 +305,8 @@ export default function Plant() {
                             </Table>
                         </CardContent>
                     </CardContent>
-                    <CardActions style={{justifyContent: 'flex-end'}} onClick = {handleClickOpen}>
-                        <Fab variant="extended" style={{background: '#81C784', color: "white", }}>
+                    <CardActions style={{justifyContent: 'flex-end'}}>
+                        <Fab variant="extended" style={{background: '#81C784', color: "white", }} onClick = {handleClickOpen}>
                             <SendIcon className={classes.extendedIcon}/>
                             TRANSFER
                         </Fab>
@@ -339,6 +341,32 @@ export default function Plant() {
                     </Button>
                 </DialogActions>
             </Dialog>
+
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Transfer plant #{getPlantId}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To transfer this plant to a new address, please enter the address you want to transfer to:
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="ethAddress"
+                        label="Ethereum Address"
+                        type="Ethereum Address"
+                        fullWidth
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        CANCEL
+                    </Button>
+                    <Button onClick={getInput} color="primary">
+                        TRANSFER
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
         </div>
 
 
