@@ -32,9 +32,7 @@ function useForceUpdate(){
     return () => setValue(value => ++value); // update the state to force render
 }
 
-const plants = [
-
-];
+const plants = [];
 
 export default function Garden() {
 
@@ -119,55 +117,75 @@ export default function Garden() {
     }
 
 
-    return (
+    if (plants.length === 0){
+        return(
+            <div style={{}} className="NoPlants">
 
-        <Grid
-            container xl={11} spacing={1}
-            direction="row"
-            justify="flex-start"
-        >
+                <div style={{
+                    position: 'absolute', left: '50%', top: '30%',
+                    transform: 'translate(-50%, -50%)',
+                    color: "grey"
+                }}>
+                    <h1 align="center">You don't have any plants yet..</h1>
+
+                    <br/>
+
+                    <h4 align="center"> You can buy plants in the shop on the left </h4>
+                    <h4 align="center"> .. or receive them from a friend!  </h4>
+                </div>
+            </div>
+        )
+    }
+
+    else {
+        return (
+
+            <Grid
+                container xl={11} spacing={1}
+                direction="row"
+                justify="flex-start"
+            >
                 {plants.map((plant_id) => {
                     return <Grid item xl={2} key={plant_id.plant_id}>
                         <Card className={classes.card}>
-                        <CardActionArea onClick = {redirectToPlant}>
-                            <CardMedia
-                                component="img"
-                                alt="nice plant"
-                                height="325"
-                                width="225"
-                                image= {getPlantImg(plant_id)}
-                                title="smallplant"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2" id="plantId">
-                                    #{plant_id.plant_id}
-                                </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p">
-                                    This is plant #{plant_id.plant_id},
-                                    It is currently producing {plant_id.greens_per_block} "greens" per block!
-                                    What a nice plant!
-                                </Typography>
-                                <br></br>
-                                <Typography gutterBottom variant="body1" color="textPrimary" component="p">
-                                    {plant_id.value/1000000000000000000} ETH
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button size="small" color="primary">
-                                Share
-                            </Button>
-                            <Button size="small" color="primary">
-                                Learn More
-                            </Button>
-                        </CardActions>
-                    </Card>
+                            <CardActionArea onClick = {redirectToPlant}>
+                                <CardMedia
+                                    component="img"
+                                    alt="nice plant"
+                                    height="325"
+                                    width="225"
+                                    image= {getPlantImg(plant_id)}
+                                    title="smallplant"
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2" id="plantId">
+                                        #{plant_id.plant_id}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        This is plant #{plant_id.plant_id},
+                                        It is currently producing {plant_id.greens_per_block} "greens" per block!
+                                        What a nice plant!
+                                    </Typography>
+                                    <br></br>
+                                    <Typography gutterBottom variant="body1" color="textPrimary" component="p">
+                                        {plant_id.value/1000000000000000000} ETH
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                    Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                    Learn More
+                                </Button>
+                            </CardActions>
+                        </Card>
                     </Grid>
                 })}
 
-        </Grid>
+            </Grid>
+        );
 
-
-
-    );
+    }
 }
