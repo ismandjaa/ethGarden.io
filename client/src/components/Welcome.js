@@ -8,6 +8,46 @@ import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
 import {TokenContext} from "../contexts/TokenContext";
 import {LoginContext} from "../contexts/LoginContext";
+
+import { withStyles } from '@material-ui/core/styles';
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import GreyArrow from '../img/greyarrow.png';
+import RopstenTesting from '../img/RopstenTesting.png';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+
+
+const styles = theme => ({
+
+
+
+    card: {
+        maxWidth: 560,
+        type: "dark",
+        backgroundColor: "#303030",
+        color: "#E0E0E0",
+    },
+    title: {
+        fontSize: 14,
+        color: "white",
+    },
+    media: {
+        height: 140,
+        paddingTop: '56.25%', // 16:9
+    },
+    pos: {
+        marginBottom: 12,
+    },
+});
+
+
+
+
 class Welcome extends Component {
 
 
@@ -106,6 +146,7 @@ class Welcome extends Component {
 
 
     render() {
+        const { classes } = this.props;
 
         const spinnerActive = false;
 
@@ -143,12 +184,41 @@ class Welcome extends Component {
 
                     <div style={{
                         position: 'absolute', left: '50%', top: '30%',
-                        transform: 'translate(-50%, -50%)'
+                        transform: 'translate(-50%, -50%)', color: '#303030',
                     }}>
                         <h1>Welcome!</h1>
 
                         <h4> You already have web3 installed! </h4>
                         <p> To play the game just hit the Login button!  </p>
+                    </div>
+
+
+                    <div style={{
+                        position: 'absolute', left: '50%', top: '80%',
+                        transform: 'translate(-50%, -50%)'
+                    }}>
+
+                        <img src={GreyArrow} height="100" width="280" style={{position: 'relative', left: '60%'}}/>
+
+                        <Card className={classes.card} raised={true}>
+
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2" color={"white"} align={"center"}>
+                                        Testnet !
+                                    </Typography>
+
+                                    <Typography variant="body2" color="textSecondary" component="p" color={"white"}>
+                                        Ethgarden is currently live on the Ropsten testnet.
+                                        This means that you need testnet ethereum to play the game!
+                                    </Typography>
+                                    <br></br>
+                                    <Typography gutterBottom variant="body1" color="textPrimary" component="p" color={"white"}>
+                                        Faucet: <a href="https://faucet.ropsten.be/">faucet.ropsten.be</a>
+                                    </Typography>
+                                </CardContent>
+
+                        </Card>
+
                     </div>
                 </div>
 
@@ -162,11 +232,38 @@ class Welcome extends Component {
 
                     <div style={{
                         position: 'absolute', left: '50%', top: '30%',
-                        transform: 'translate(-50%, -50%)'
+                        transform: 'translate(-50%, -50%)', color: '#303030'
                     }}>
                         <h1>Welcome!</h1>
                             <p>To play Ethgarden you need to install Metamask :(</p>
                             <p>You can do se here: <a href="https://metamask.io/">Metamask.io</a></p>
+
+                    </div>
+
+                    <div style={{
+                        position: 'absolute', left: '50%', top: '90%',
+                        transform: 'translate(-50%, -50%)'
+                    }}>
+
+                        <img src={GreyArrow} height="100" width="280" style={{position: 'relative', left: '60%'}}/>
+
+                        <Card className={classes.card} raised={true}>
+
+                            <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2" color={"white"} align={"center"}>
+                                    Testnet !
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p" color={"white"}>
+                                    Ethgarden is currently live on the Ropsten testnet.
+                                    This means that you need testnet ethereum to play the game!
+                                </Typography>
+                                <br></br>
+                                <Typography gutterBottom variant="body1" color="textPrimary" component="p" color={"white"}>
+                                    Faucet: <a href="https://faucet.ropsten.be/">faucet.ropsten.be</a>
+                                </Typography>
+                            </CardContent>
+
+                        </Card>
 
                     </div>
                 </div>
@@ -175,4 +272,4 @@ class Welcome extends Component {
         }
     }
 }
-export default Welcome;
+export default withStyles(styles)(Welcome);

@@ -99,6 +99,7 @@ class Navbar extends Component {
                                         top: '15px',
                                         color: 'white'
                                     }}>Ethgarden.io</h3></Link>
+
                                     <Button id="loginButton" variant="outlined" onClick={this.startLogin2} style={{
                                         boxShadow: "none",
                                         position: 'absolute',

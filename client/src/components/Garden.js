@@ -126,12 +126,12 @@ export default function Garden() {
                     transform: 'translate(-50%, -50%)',
                     color: "grey"
                 }}>
-                    <h1 align="center">You don't have any plants yet..</h1>
+                    <h1>You don't have any plants yet.. :(</h1>
 
                     <br/>
 
-                    <h4 align="center"> You can buy plants in the shop on the left </h4>
-                    <h4 align="center"> .. or receive them from a friend!  </h4>
+                    <h4> You can buy plants in the shop on the left </h4>
+                    <h4> .. or receive them from a friend!  </h4>
                 </div>
             </div>
         )
