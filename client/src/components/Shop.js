@@ -72,7 +72,7 @@ class Shop extends Component {
     };
 
     getInput = async () => {
-        this.setState({ open: false });
+        this.setState({ open1: false });
         const price = document.getElementById("finalPrice").value;
         console.log("this is the price: " + price + " eth");
 
