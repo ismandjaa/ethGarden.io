@@ -164,15 +164,13 @@ export default function MiniDrawer() {
 
             const web3 = await getWeb3();
 
-            const currentApi = "http://ethgarden.io/api/";
+            const currentApi = "https://ethgarden.io/api/";
 
-            console.log("Here are your greens:");
+
 
             await axios.get(currentApi + "users/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress) + "/greens")
                 .then(response => {
-                    console.log(response.data.greens);
                     currentGreens = response.data.greens;
-                    console.log(currentGreens);
                     forceUpdate();
                 });
 
