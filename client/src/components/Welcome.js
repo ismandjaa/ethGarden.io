@@ -156,12 +156,12 @@ class Welcome extends Component {
 
                     <div style={{
                         position: 'absolute', left: '50%', top: '30%',
-                        transform: 'translate(-50%, -50%)'
+                        transform: 'translate(-50%, -50%)', color: "#303030"
                     }}>
                         <h1>Loading</h1>
                         <div style={{
                             position: 'absolute', left: '50%', top: '120%',
-                            transform: 'translate(-50%, -50%)'
+                            transform: 'translate(-50%, -50%)', color: "#303030"
                         }}>
 
                             <Spinner animation="border" role="status">
@@ -203,16 +203,16 @@ class Welcome extends Component {
                         <Card className={classes.card} raised={true}>
 
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2" color={"white"} align={"center"}>
+                                    <Typography gutterBottom variant="h5" component="h2" align={"center"}>
                                         Testnet !
                                     </Typography>
 
-                                    <Typography variant="body2" color="textSecondary" component="p" color={"white"}>
+                                    <Typography variant="body2" component="p">
                                         Ethgarden is currently live on the Ropsten testnet.
                                         This means that you need testnet ethereum to play the game!
                                     </Typography>
                                     <br></br>
-                                    <Typography gutterBottom variant="body1" color="textPrimary" component="p" color={"white"}>
+                                    <Typography gutterBottom variant="body1" component="p">
                                         Faucet: <a href="https://faucet.ropsten.be/">faucet.ropsten.be</a>
                                     </Typography>
                                 </CardContent>
@@ -250,15 +250,15 @@ class Welcome extends Component {
                         <Card className={classes.card} raised={true}>
 
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2" color={"white"} align={"center"}>
+                                <Typography gutterBottom variant="h5" component="h2" align={"center"}>
                                     Testnet !
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p" color={"white"}>
+                                <Typography variant="body2" component="p">
                                     Ethgarden is currently live on the Ropsten testnet.
                                     This means that you need testnet ethereum to play the game!
                                 </Typography>
-                                <br></br>
-                                <Typography gutterBottom variant="body1" color="textPrimary" component="p" color={"white"}>
+                                <br/>
+                                <Typography gutterBottom variant="body1" component="p">
                                     Faucet: <a href="https://faucet.ropsten.be/">faucet.ropsten.be</a>
                                 </Typography>
                             </CardContent>

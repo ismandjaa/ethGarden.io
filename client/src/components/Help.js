@@ -32,7 +32,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://ethgarden.io/";
+        const currentApi = "https://ethgarden.io/api/";
 
         console.log("Here are your greens:");
 
@@ -51,7 +51,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://134.209.225.213/";
+        const currentApi = "https://ethgarden.io/api/";
 
         console.log("Here are your plants:");
 
@@ -70,7 +70,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://134.209.225.213/";
+        const currentApi = "https://ethgarden.io/api/";
 
         console.log("Here are the available badges:");
 
@@ -89,7 +89,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://134.209.225.213/";
+        const currentApi = "https://ethgarden.io/api/";
 
         console.log("Here are your badges:");
 
@@ -108,7 +108,7 @@ class Help extends Component {
 
         const web3 = await getWeb3();
 
-        const currentApi = "http://134.209.225.213/";
+        const currentApi = "https://ethgarden.io/api/";
 
         console.log("Here are your badges:");
 

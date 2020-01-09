@@ -212,7 +212,7 @@ class Shop extends Component {
             <div style={{}} className="Shop">
 
                 <div align="center">
-                    <h3>Buy a plant!</h3>
+                    <h4 style={{color: "grey"}}>Psst, want a plant?</h4>
 
                     <br/>
 

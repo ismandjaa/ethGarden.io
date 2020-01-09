@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {PageContext} from "../contexts/PageContext";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -28,6 +28,10 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import HelpIcon from '@material-ui/icons/Help';
 import Button from "@material-ui/core/Button";
 import {LoginContext} from "../contexts/LoginContext";
+import axios from "axios";
+import getWeb3 from "../utils/getWeb3";
+import GreensIcon from '../img/greensIconpng.png';
+import GreyArrow from "../img/greyarrow.png";
 
 const drawerWidth = 240;
 
@@ -92,11 +96,20 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+let currentGreens = 0;
+
+function useForceUpdate(){
+    console.log("updating");
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => ++value); // update the state to force render
+}
+
 export default function MiniDrawer() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     let history = useHistory();
+    const forceUpdate = useForceUpdate();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -145,8 +158,35 @@ export default function MiniDrawer() {
 
     const {toggleLoginFalse} = useContext(LoginContext);
 
+    useEffect( () => {
+
+        async function getTheGreens() {
+
+            const web3 = await getWeb3();
+
+            const currentApi = "http://ethgarden.io/api/";
+
+            console.log("Here are your greens:");
+
+            await axios.get(currentApi + "users/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress) + "/greens")
+                .then(response => {
+                    console.log(response.data.greens);
+                    currentGreens = response.data.greens;
+                    console.log(currentGreens);
+                    forceUpdate();
+                });
+
+
+            setTimeout(getTheGreens, 5000);
+
+        }
+        getTheGreens();
+    }, []);
+
 
     return (
+
+
         <div className={classes.root}>
             <CssBaseline />
             <AppBar
@@ -162,6 +202,9 @@ export default function MiniDrawer() {
                     <Button id="loginButton" onClick = {handleLogout} style={{boxShadow: "none", position: 'absolute', right: '15px', top: '15px', outline: 'none', color: 'white', borderColor: 'none'}}>
                         LOGOUT
                     </Button>
+                        <Typography variant="button" style={{position: "absolute", right: '110px', top:"21px"}}>
+                            <img src={GreensIcon} height="16" width="16" style={{verticalAlign: "-3px"}}/>  {currentGreens}
+                        </Typography>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
