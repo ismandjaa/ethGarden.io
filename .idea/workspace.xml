@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b2f0ae7-2139-4cd9-804f-b11481992e7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/img/greenlock.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Achievements.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Achievements.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Garden.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Garden.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Plant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Plant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Shop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UserNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserNavbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/contexts/LoginContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/contexts/LoginContext.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +21,10 @@
     <session id="994814162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="23" />
+          <entry key="project.closed" value="24" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="4" />
+          <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.14" value="1" />
@@ -34,7 +38,7 @@
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,7 +47,7 @@
           <entry key="html" value="2" />
           <entry key="ico" value="2" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="81" />
+          <entry key="js" value="97" />
           <entry key="json" value="6" />
           <entry key="png" value="1" />
           <entry key="sol" value="6" />
@@ -56,7 +60,7 @@
           <entry key="HTML" value="2" />
           <entry key="Image" value="5" />
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="81" />
+          <entry key="JavaScript" value="97" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SVG" value="1" />
         </counts>
@@ -64,7 +68,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="16" />
-          <entry key="js" value="36264" />
+          <entry key="js" value="38023" />
           <entry key="json" value="24" />
         </counts>
       </usages-collector>
@@ -72,7 +76,7 @@
         <counts>
           <entry key="HTML" value="16" />
           <entry key="JSON" value="24" />
-          <entry key="JavaScript" value="36264" />
+          <entry key="JavaScript" value="38023" />
         </counts>
       </usages-collector>
     </session>
@@ -80,19 +84,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/contexts/LoginContext.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/UserNavbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="176" />
+            <state relative-caret-position="900">
+              <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
               <folding>
                 <element signature="e#0#61#0" expanded="true" />
               </folding>
@@ -103,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Garden.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="274">
+              <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding>
                 <element signature="e#0#74#0" expanded="true" />
               </folding>
@@ -113,47 +108,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/contexts/LoginContext.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Achievements.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Plant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3440">
-              <caret line="205" column="27" selection-start-line="205" selection-start-column="27" selection-end-line="205" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Help.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1940">
-              <caret line="110" column="53" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#474#494#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Navbar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contracts/PlantBase.sol">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3200">
-              <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
+            <state relative-caret-position="400">
+              <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -161,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="4288">
+              <caret line="286" column="38" lean-forward="true" selection-start-line="286" selection-start-column="38" selection-end-line="286" selection-end-column="38" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -173,22 +152,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Welcome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3580">
-              <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
+            <state relative-caret-position="1080">
+              <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Ethgarden.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -233,18 +200,18 @@
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Ethgarden.js" />
         <option value="$PROJECT_DIR$/client/src/components/Login.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Achievements.js" />
         <option value="$PROJECT_DIR$/client/src/contexts/PageContext.js" />
         <option value="$PROJECT_DIR$/client/src/components/Home.js" />
-        <option value="$PROJECT_DIR$/client/src/contexts/LoginContext.js" />
         <option value="$PROJECT_DIR$/client/src/components/Main.js" />
         <option value="$PROJECT_DIR$/client/public/manifest.json" />
         <option value="$PROJECT_DIR$/client/public/index.html" />
         <option value="$PROJECT_DIR$/client/src/components/Navbar.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Shop.js" />
         <option value="$PROJECT_DIR$/client/src/components/Welcome.js" />
         <option value="$PROJECT_DIR$/client/src/components/Help.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Shop.js" />
+        <option value="$PROJECT_DIR$/client/src/contexts/LoginContext.js" />
         <option value="$PROJECT_DIR$/client/src/components/Plant.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Achievements.js" />
         <option value="$PROJECT_DIR$/client/src/components/UserNavbar.js" />
         <option value="$PROJECT_DIR$/client/src/components/Garden.js" />
       </list>
@@ -276,10 +243,11 @@
       <path value="$PROJECT_DIR$/client/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1422" />
-    <option name="width" value="1454" />
-    <option name="height" value="2012" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="y" value="8" />
+    <option name="width" value="2878" />
+    <option name="height" value="2004" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -287,9 +255,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -344,18 +311,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578567342376" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578612956355" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\willi\Documents\truffle\client\src\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\willi\Documents\truffle\client\src\img" />
       <recent name="C:\Users\willi\Documents\truffle\client\public" />
@@ -412,26 +383,27 @@
       <workItem from="1577613516208" duration="129758000" />
       <workItem from="1578398819948" duration="31762000" />
       <workItem from="1578567657173" duration="1544000" />
-      <workItem from="1578572335583" duration="30000" />
+      <workItem from="1578572335583" duration="3550000" />
+      <workItem from="1578596924600" duration="10520000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351977000" />
+    <option name="totallyTimeSpent" value="366017000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1445" height="1013" extended-state="6" />
+    <frame x="-5" y="4" width="1439" height="1002" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49433106" visible="true" weight="0.16510454" />
-      <window_info id="Structure" order="1" sideWeight="0.50566894" side_tool="true" visible="true" weight="0.16510454" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49368542" visible="true" weight="0.4475018" />
+      <window_info id="Structure" order="1" sideWeight="0.5063146" side_tool="true" visible="true" weight="0.4475018" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3299389" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32926002" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -526,13 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Explore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="127" column="42" lean-forward="true" selection-end-line="194" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -562,34 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/About.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/contexts/TokenContext.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Achievements.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -630,27 +571,51 @@
     <entry file="file://$PROJECT_DIR$/client/src/img/greyarrow.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/contexts/LoginContext.js">
+    <entry file="file://$PROJECT_DIR$/contracts/PlantBase.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="3200">
+          <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Plant.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/About.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3440">
-          <caret line="205" column="27" selection-start-line="205" selection-start-column="27" selection-end-line="205" selection-end-column="27" />
+        <state relative-caret-position="440">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Explore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Ethgarden.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
-            <element signature="e#0#61#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Help.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1940">
-          <caret line="110" column="53" selection-start-line="110" selection-start-column="53" selection-end-line="110" selection-end-column="53" />
+        <state relative-caret-position="1234">
+          <caret line="114" column="16" selection-start-line="114" selection-start-column="16" selection-end-line="114" selection-end-column="16" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#474#494#0" expanded="true" />
@@ -660,7 +625,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Navbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
+        <state relative-caret-position="-1320">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -668,17 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/PlantBase.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3200">
-          <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="4288">
+          <caret line="286" column="38" lean-forward="true" selection-start-line="286" selection-start-column="38" selection-end-line="286" selection-end-column="38" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -687,28 +645,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Welcome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3580">
-          <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
+        <state relative-caret-position="1080">
+          <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Ethgarden.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/Plant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="400">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Achievements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/contexts/LoginContext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/UserNavbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="176" lean-forward="true" selection-start-line="176" selection-end-line="176" />
+        <state relative-caret-position="900">
+          <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
           <folding>
             <element signature="e#0#61#0" expanded="true" />
           </folding>
@@ -717,8 +689,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Garden.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="274">
+          <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
           </folding>

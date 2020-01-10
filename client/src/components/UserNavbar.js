@@ -33,6 +33,7 @@ import getWeb3 from "../utils/getWeb3";
 import GreensIcon from '../img/greensIconpng.png';
 import GreyArrow from "../img/greyarrow.png";
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -156,7 +157,7 @@ export default function MiniDrawer() {
 
     };
 
-    const {toggleLoginFalse} = useContext(LoginContext);
+    const {toggleLoginFalse, setGreens} = useContext(LoginContext);
 
     useEffect( () => {
 
@@ -166,17 +167,13 @@ export default function MiniDrawer() {
 
             const currentApi = "https://ethgarden.io/api/";
 
-
-
             await axios.get(currentApi + "users/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress) + "/greens")
                 .then(response => {
                     currentGreens = response.data.greens;
                     forceUpdate();
+                    setGreens(response.data.greens);
                 });
-
-
-            setTimeout(getTheGreens, 5000);
-
+            setTimeout(getTheGreens, 5000); //This updates Greens every 5 seconds in UserNavbar
         }
         getTheGreens();
     }, []);

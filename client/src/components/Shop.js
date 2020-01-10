@@ -223,7 +223,7 @@ class Shop extends Component {
                         alignItems="center"
                     >
                           <Grid item xl={2}>
-                              <Card className={classes.card}>
+                              <Card className={classes.card} raised={true}>
                                     <CardActionArea onClick = {this.promptDialog2}>
                                         <CardMedia
                                             component="img"
@@ -249,7 +249,7 @@ class Shop extends Component {
                                     </Card>
                           </Grid>
                             <Grid item xl={2}>
-                                <Card className={classes.card}>
+                                <Card className={classes.card} raised={true}>
                                     <CardActionArea onClick = {this.promptDialog3}>
                                         <CardMedia
                                             component="img"
@@ -275,7 +275,7 @@ class Shop extends Component {
                                 </Card>
                             </Grid>
                         <Grid item xl={2}>
-                            <Card className={classes.card}>
+                            <Card className={classes.card} raised={true}>
                                 <CardActionArea onClick = {this.promptDialog1}>
                                     <CardMedia
                                         component="img"
