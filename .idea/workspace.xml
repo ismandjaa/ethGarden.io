@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b2f0ae7-2139-4cd9-804f-b11481992e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/img/blank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/img/medal1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/img/medal2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/img/medal3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Achievements.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Achievements.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Shop.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,7 +40,7 @@
           <entry key="html" value="2" />
           <entry key="ico" value="2" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="102" />
+          <entry key="js" value="103" />
           <entry key="json" value="9" />
           <entry key="png" value="5" />
           <entry key="sol" value="6" />
@@ -59,7 +53,7 @@
           <entry key="HTML" value="2" />
           <entry key="Image" value="9" />
           <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="102" />
+          <entry key="JavaScript" value="103" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SVG" value="1" />
         </counts>
@@ -67,7 +61,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="16" />
-          <entry key="js" value="41993" />
+          <entry key="js" value="42005" />
           <entry key="json" value="24" />
         </counts>
       </usages-collector>
@@ -75,25 +69,13 @@
         <counts>
           <entry key="HTML" value="16" />
           <entry key="JSON" value="24" />
-          <entry key="JavaScript" value="41993" />
+          <entry key="JavaScript" value="42005" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Garden.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2380">
-              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#74#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/contexts/LoginContext.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -116,15 +98,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Achievements.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="236" column="36" lean-forward="true" selection-start-line="236" selection-start-column="36" selection-end-line="236" selection-end-column="36" />
+            <state relative-caret-position="40">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#2841#2937#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -235,8 +225,8 @@
         <option value="$PROJECT_DIR$/client/src/components/UserNavbar.js" />
         <option value="$PROJECT_DIR$/client/src/components/Garden.js" />
         <option value="$PROJECT_DIR$/client/src/contracts/GardenTestToken.json" />
-        <option value="$PROJECT_DIR$/client/src/components/Shop.js" />
         <option value="$PROJECT_DIR$/client/src/components/Achievements.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Shop.js" />
       </list>
     </option>
   </component>
@@ -414,19 +404,19 @@
       <workItem from="1578572335583" duration="3550000" />
       <workItem from="1578596924600" duration="11722000" />
       <workItem from="1579365320146" duration="19048000" />
-      <workItem from="1579954029608" duration="7586000" />
+      <workItem from="1579954029608" duration="8516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393853000" />
+    <option name="totallyTimeSpent" value="394783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2519" height="1607" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4915139" visible="true" weight="0.25864172" />
-      <window_info id="Structure" order="1" sideWeight="0.5084861" side_tool="true" visible="true" weight="0.25864172" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4915139" visible="true" weight="0.25864172" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.5084861" side_tool="true" visible="true" weight="0.25864172" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -650,16 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/img/greyarrow.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -732,12 +712,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Achievements.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="236" column="36" lean-forward="true" selection-start-line="236" selection-start-column="36" selection-end-line="236" selection-end-column="36" />
+        <state relative-caret-position="40">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
             <element signature="e#2841#2937#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
         </state>
       </provider>
     </entry>

@@ -4,7 +4,6 @@ import "../App.css"
 import Button from 'react-bootstrap/Button';
 import getWeb3 from "../utils/getWeb3";
 import PlantBase from "../contracts/PlantBase";
-import GardenTestToken from "../contracts/GardenTestToken";
 
 import {PageContext} from "../contexts/PageContext";
 import {LoginContext} from "../contexts/LoginContext";
@@ -153,13 +152,14 @@ class Shop extends Component {
                 PlantBase.abi,
                 "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
             );
-            const instance2 = new web3.eth.Contract(
-                GardenTestToken,
-                "0xab7f1A5D32376B0fa17FBCe9e71f2e83Adf930d7",
-            );
+            //const instance2 = new web3.eth.Contract(
+                //GardenTestToken,
+                //"0xab7f1A5D32376B0fa17FBCe9e71f2e83Adf930d7",
+            //);
             // Set web3, accounts, and contract to the state, and then proceed with an
             // example of interacting with the contract's methods.
-            this.setState({ web3, accounts, contract: instance, contract2: instance2 });
+            this.setState({ web3, accounts, contract: instance});
+            //this.setState({ web3, accounts, contract: instance, contract2: instance2 });
 
 
         } catch (error) {
