@@ -4,6 +4,7 @@ import "../App.css"
 import Button from 'react-bootstrap/Button';
 import getWeb3 from "../utils/getWeb3";
 import PlantBase from "../contracts/PlantBase";
+import GardenTestToken from "../contracts/GardenTestToken";
 
 import {PageContext} from "../contexts/PageContext";
 import {LoginContext} from "../contexts/LoginContext";
@@ -45,7 +46,7 @@ class Shop extends Component {
 
     static contextType = LoginContext;
 
-    state = { storageValue: 0, web3: null, accounts: null, contract: null, open1: false, open2: false, open3: false, };
+    state = { storageValue: 0, web3: null, accounts: null, contract: null, open1: false, open2: false, open3: false, contract2: null};
 
     handleClickOpen1 = () => {
         this.setState({ open1: true });
@@ -152,9 +153,13 @@ class Shop extends Component {
                 PlantBase.abi,
                 "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
             );
+            const instance2 = new web3.eth.Contract(
+                GardenTestToken,
+                "0xab7f1A5D32376B0fa17FBCe9e71f2e83Adf930d7",
+            );
             // Set web3, accounts, and contract to the state, and then proceed with an
             // example of interacting with the contract's methods.
-            this.setState({ web3, accounts, contract: instance });
+            this.setState({ web3, accounts, contract: instance, contract2: instance2 });
 
 
         } catch (error) {
@@ -182,6 +187,28 @@ class Shop extends Component {
             // receipt example
             console.log(receipt);
         })
+    };
+
+    buyPlantERC20 = async () => {
+        const { accounts, contract2, contract } = this.state;
+
+        const assumedPurchaseValue = 1000000000000000;
+        //get this from user
+        const shippingFee = await contract.methods.shippingFee().call();
+
+        const value = +assumedPurchaseValue + +shippingFee;
+
+        const options = {from: accounts[0], value: value};
+
+        console.log(10^18);
+
+        const mint = await contract2.methods.mint(accounts[0], "1000000000000000000").send({from: accounts[0]});
+
+        const approve = await contract2.methods.approve("0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90", "1000000000000000000").send({from: accounts[0]});
+
+        const minterc20 = await contract.methods.mintERC20("0xab7f1A5D32376B0fa17FBCe9e71f2e83Adf930d7").send(options);
+
+
     };
 
     promptDialog1 = async () => {
@@ -376,7 +403,7 @@ class Shop extends Component {
                         <Button onClick={this.handleClose3} style={{background: '#616161', color: "white", borderColor:'#616161'}}>
                             Cancel
                         </Button>
-                        <Button onClick={this.buyPremium} style={{background: '#81C784', color: "white", borderColor:'#81C784'}}>
+                        <Button onClick={this.buyPlantERC20} style={{background: '#81C784', color: "white", borderColor:'#81C784'}}>
                             Buy plant
                         </Button>
                     </DialogActions>
