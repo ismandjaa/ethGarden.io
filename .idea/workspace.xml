@@ -61,7 +61,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="16" />
-          <entry key="js" value="42005" />
+          <entry key="js" value="42006" />
           <entry key="json" value="24" />
         </counts>
       </usages-collector>
@@ -69,7 +69,7 @@
         <counts>
           <entry key="HTML" value="16" />
           <entry key="JSON" value="24" />
-          <entry key="JavaScript" value="42005" />
+          <entry key="JavaScript" value="42006" />
         </counts>
       </usages-collector>
     </session>
@@ -113,8 +113,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+            <state relative-caret-position="1085">
+              <caret line="405" column="56" selection-start-line="405" selection-start-column="56" selection-end-line="405" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -404,12 +407,12 @@
       <workItem from="1578572335583" duration="3550000" />
       <workItem from="1578596924600" duration="11722000" />
       <workItem from="1579365320146" duration="19048000" />
-      <workItem from="1579954029608" duration="8516000" />
+      <workItem from="1579954029608" duration="8795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394783000" />
+    <option name="totallyTimeSpent" value="395062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2519" height="1607" extended-state="0" />
@@ -722,8 +725,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Shop.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+        <state relative-caret-position="1085">
+          <caret line="405" column="56" selection-start-line="405" selection-start-column="56" selection-end-line="405" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

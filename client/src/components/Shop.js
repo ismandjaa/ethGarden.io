@@ -403,7 +403,7 @@ class Shop extends Component {
                         <Button onClick={this.handleClose3} style={{background: '#616161', color: "white", borderColor:'#616161'}}>
                             Cancel
                         </Button>
-                        <Button onClick={this.buyPlantERC20} style={{background: '#81C784', color: "white", borderColor:'#81C784'}}>
+                        <Button onClick={this.buyPremium} style={{background: '#81C784', color: "white", borderColor:'#81C784'}}>
                             Buy plant
                         </Button>
                     </DialogActions>
