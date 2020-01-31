@@ -152,7 +152,7 @@ export default function MiniDrawer() {
     const handleLogout = () => {
 
         //probably remove access and refresh tokens
-
+        // history.push("/");
         toggleLoginFalse();
 
     };
