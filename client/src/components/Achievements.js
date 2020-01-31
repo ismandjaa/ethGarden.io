@@ -64,10 +64,10 @@ class Achievements extends Component {
 
             await axios.get(currentApi + "badges/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
                 .then(response => {
-                    console.log("Here are your badges:");
-                    console.log(response.data);
-                    console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
-                    console.log(response.data.length);
+                    //console.log("Here are your badges:");
+                    //console.log(response.data);
+                    //console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
+                    //console.log(response.data.length);
                     this.setState({achievements: response.data.length});
                 });
 
@@ -119,13 +119,13 @@ class Achievements extends Component {
     };
 
     setAchievementZero (){
-        console.log("achievements was 0");
+        //console.log("achievements was 0");
         this.setState({pictureState1: GreenLock});
         this.setState({pictureState2: GreenLock});
         this.setState({pictureState3: GreenLock});
     };
     setAchievementOne (){
-        console.log("achievements was 1");
+        //console.log("achievements was 1");
         document.getElementById("CardContent1").parentNode.removeChild(document.getElementById("CardContent1"));
         document.getElementById("Points1").style.visibility = "hidden";
         this.setState({pictureState1: Medal1});
@@ -134,7 +134,7 @@ class Achievements extends Component {
         this.setState({achievements: 1});
     };
     setAchievementTwo (){
-        console.log("achievements was 2");
+        //console.log("achievements was 2");
         document.getElementById("CardContent1").parentNode.removeChild(document.getElementById("CardContent1"));
         document.getElementById("Points1").style.visibility = "hidden";
         document.getElementById("CardContent2").parentNode.removeChild(document.getElementById("CardContent2"));
@@ -145,7 +145,7 @@ class Achievements extends Component {
         this.setState({achievements: 2});
     };
     setAchievementThree (){
-        console.log("achievements was 3");
+        //console.log("achievements was 3");
         document.getElementById("CardContent1").parentNode.removeChild(document.getElementById("CardContent1"));
         document.getElementById("Points1").style.visibility = "hidden";
         document.getElementById("CardContent2").parentNode.removeChild(document.getElementById("CardContent2"));
@@ -158,7 +158,7 @@ class Achievements extends Component {
     };
 
     claimAchievementOne = async () => {
-        console.log("i wanna claim achievement 1");
+        //console.log("i wanna claim achievement 1");
 
         if (this.state.greensState > 100 && this.state.achievements === 0){
             const currentApi = "https://ethgarden.io/api/";
@@ -186,7 +186,7 @@ class Achievements extends Component {
                 },
                 { headers: {Authorization: `Bearer ${this.context.accessToken}` }})
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.setState({pictureState1: Medal1});
                     document.getElementById("CardContent1").parentNode.removeChild(document.getElementById("CardContent1"));
                     document.getElementById("Points1").style.visibility = "hidden";
@@ -195,7 +195,7 @@ class Achievements extends Component {
         }
     };
     claimAchievementTwo = async () => {
-        console.log("i wanna claim achievement 2");
+        //console.log("i wanna claim achievement 2");
 
         if (this.state.greensState > 1000  && this.state.achievements === 1){
             const currentApi = "https://ethgarden.io/api/";
@@ -223,7 +223,7 @@ class Achievements extends Component {
                 },
                 { headers: {Authorization: `Bearer ${this.context.accessToken}` }})
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.setState({pictureState2: Medal2});
                     document.getElementById("CardContent2").parentNode.removeChild(document.getElementById("CardContent2"));
                     document.getElementById("Points2").style.visibility = "hidden";
@@ -235,7 +235,7 @@ class Achievements extends Component {
         }
     };
     claimAchievementThree = async () => {
-        console.log("i wanna claim achievement 3");
+        //console.log("i wanna claim achievement 3");
 
         if (this.state.greensState > 10000 && this.state.achievements === 2){
             const currentApi = "https://ethgarden.io/api/";
@@ -263,7 +263,7 @@ class Achievements extends Component {
                 },
                 { headers: {Authorization: `Bearer ${this.context.accessToken}` }})
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.setState({pictureState3: Medal3});
                     document.getElementById("CardContent3").parentNode.removeChild(document.getElementById("CardContent3"));
                     document.getElementById("Points3").style.visibility = "hidden";

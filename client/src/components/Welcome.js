@@ -79,16 +79,16 @@ class Welcome extends Component {
             await axios.get(currentApi + 'users/'+ accounts)
                 .then(async response => {
 
-                    console.log("user found, signing what's retrieved:");
-                    console.log(response.data.nonce);
+                    //console.log("user found, signing what's retrieved:");
+                    //console.log(response.data.nonce);
                     const signature = await web3.eth.personal.sign("Ethgarden login nonce: " + response.data.nonce.toString(), web3.currentProvider.selectedAddress, "greattesting");
-                    console.log(signature);
-                    console.log("checksum:");
-                    console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
+                    //console.log(signature);
+                    //console.log("checksum:");
+                    //console.log(web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress));
                     axios.post(currentApi + 'tokensig/', { "signature": signature, "nonce": response.data.nonce.toString(), "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
-                            console.log("tokens received:");
-                            console.log(response.data);
+                            //console.log("tokens received:");
+                            //console.log(response.data);
                             const refreshToken = response.data.refresh;
                             const accessToken = response.data.access;
                             this.setState({refreshToken: refreshToken, accessToken: accessToken });
@@ -104,14 +104,14 @@ class Welcome extends Component {
 
 
                 }).catch(async function(error) {
-                    console.log(error);
-                    console.log("user not found signing 1");
+                    //console.log(error);
+                    //console.log("user not found signing 1");
                     const signature = await web3.eth.personal.sign("Ethgarden login nonce: 1", web3.currentProvider.selectedAddress, "greattesting");
 
                     axios.post(currentApi + 'tokensig/', { "signature": signature, "nonce": 1, "address": web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress)})
                         .then(response => {
-                            console.log("tokens received:");
-                            console.log(response.data);
+                            //console.log("tokens received:");
+                            //console.log(response.data);
                             const refreshToken = response.data.refresh;
                             const accessToken = response.data.access;
 

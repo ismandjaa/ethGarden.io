@@ -101,7 +101,7 @@ export default function Plant() {
 
                 const currentApi = "https://ethgarden.io/api/";
 
-                console.log("you are trying to get this plant: " + selectedPlant);
+                //console.log("you are trying to get this plant: " + selectedPlant);
 
                 await axios.get(currentApi + "plant/" + selectedPlant)
                     .then(response => {
@@ -139,7 +139,7 @@ export default function Plant() {
 
     const handleBack = () => {
         removePlant();
-        console.log("trying to go back");
+        //console.log("trying to go back");
         history.push("/Garden");
 
     };
@@ -200,7 +200,7 @@ export default function Plant() {
             "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
         );
 
-        console.log(getPlantId);
+        //console.log(getPlantId);
 
         const options = {from: accounts[0]};
 
@@ -229,7 +229,7 @@ export default function Plant() {
             "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
         );
 
-        console.log(getPlantId);
+        //console.log(getPlantId);
 
         const options = {from: accounts[0]};
 

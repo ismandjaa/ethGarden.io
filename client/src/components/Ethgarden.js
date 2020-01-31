@@ -8,6 +8,7 @@ import Welcome from "./Welcome";
 
 
 function Check(){
+
     const { isLoggedIn } = useContext(LoginContext);
     if (isLoggedIn) {
         return <div>

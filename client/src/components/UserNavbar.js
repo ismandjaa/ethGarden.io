@@ -27,7 +27,6 @@ import axios from "axios";
 import getWeb3 from "../utils/getWeb3";
 import GreensIcon from '../img/greensIconpng.png';
 
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -94,7 +93,7 @@ const useStyles = makeStyles(theme => ({
 let currentGreens = 0;
 
 function useForceUpdate(){
-    console.log("updating");
+    //console.log("updating");
     const [value, setValue] = useState(0); // integer state
     return () => setValue(value => ++value); // update the state to force render
 }
@@ -117,28 +116,28 @@ export default function MiniDrawer() {
 
     const handleGarden = () => {
         setOpen(false);
-        console.log("trying to redirect");
+        //console.log("trying to redirect");
         history.push("/Garden");
 
     };
 
     const handleShop = () => {
         setOpen(false);
-        console.log("trying to redirect");
+        //console.log("trying to redirect");
         history.push("/Shop");
 
     };
 
     const handleAchievements = () => {
         setOpen(false);
-        console.log("trying to redirect");
+        //console.log("trying to redirect");
         history.push("/Achievements");
 
     };
 
     const handleHelp = () => {
         setOpen(false);
-        console.log("trying to redirect");
+        //console.log("trying to redirect");
         history.push("/Help");
 
     };

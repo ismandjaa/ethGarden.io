@@ -94,7 +94,7 @@ class Shop extends Component {
     buyBasic = async () => {
         this.setState({ open2: false });
         const price = 0.01;
-        console.log("this is the price: " + price + " eth");
+        //console.log("this is the price: " + price + " eth");
 
         const { accounts, contract } = this.state;
 
@@ -157,6 +157,7 @@ class Shop extends Component {
             // example of interacting with the contract's methods.
             this.setState({ web3, accounts, contract: instance});
             //this.setState({ web3, accounts, contract: instance, contract2: instance2 });
+
 
 
         } catch (error) {

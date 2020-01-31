@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     },
 });
 
+
 function useForceUpdate(){
     const [value, setValue] = useState(0); // integer state
     return () => setValue(value => ++value); // update the state to force render
@@ -54,6 +55,8 @@ export default function Garden() {
 
             const web3 = await getWeb3();
             const currentApi = "https://ethgarden.io/api/";
+
+            web3.currentProvider.setMaxListeners(0); //fix
             //console.log("You have this many plants:");
 
             await axios.get(currentApi + "plants/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
@@ -67,11 +70,11 @@ export default function Garden() {
                         //console.log(plant_id, owner);
                         plants.push(owner);
                     }
-                    console.log({plants});
+                    //console.log({plants});
                     forceUpdate();
 
                 });
-            setTimeout(getMyPlants, 5000); //FIX THIS. FOR SOME REASON THIS IS SETTING NEW TIMER EVERY TIME GARDEN IS OPENED
+            setTimeout(getMyPlants, 5000);
         }
         getMyPlants();
     }, []);
@@ -79,11 +82,11 @@ export default function Garden() {
     function redirectToPlant(ev) {
 
         const target = ev.currentTarget.querySelector('div').querySelector('h2').innerHTML.substr(1);
-        console.log(target);
+        //console.log(target);
 
         setSelectedPlant(target);
 
-        console.log("trying to redirect to plant");
+        //console.log("trying to redirect to plant");
         history.push("/Plant");
 
         //here i need to change context to the target
