@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
-import SimpleStorageContract from "../contracts/SimpleStorage";
 import {TokenContext} from "../contexts/TokenContext";
 import axios from "axios";
 
@@ -26,7 +25,7 @@ class Login extends Component {
 
             const self = this;
 
-            const nonce = await axios.get(currentApi + 'users/'+ accounts)
+            await axios.get(currentApi + 'users/'+ accounts)
                 .then(async response => {
 
                     console.log("user found, signing what's retrieved:");

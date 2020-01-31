@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {PageContext} from "../contexts/PageContext";
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -16,12 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import Ethgarden from "./Ethgarden";
 import Main from "./Main";
-import {Redirect, Link, useHistory} from "react-router-dom";
-import Shop from "./Shop";
+import {useHistory} from "react-router-dom";
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
@@ -31,7 +26,6 @@ import {LoginContext} from "../contexts/LoginContext";
 import axios from "axios";
 import getWeb3 from "../utils/getWeb3";
 import GreensIcon from '../img/greensIconpng.png';
-import GreyArrow from "../img/greyarrow.png";
 
 
 const drawerWidth = 240;

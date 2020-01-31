@@ -2,24 +2,15 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
-import SimpleStorageContract from "../contracts/SimpleStorage";
 import {Redirect, useHistory} from "react-router-dom";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
-import {TokenContext} from "../contexts/TokenContext";
 import {LoginContext} from "../contexts/LoginContext";
-
 import { withStyles } from '@material-ui/core/styles';
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import GreyArrow from '../img/greyarrow.png';
-import RopstenTesting from '../img/RopstenTesting.png';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
-
 
 
 const styles = theme => ({
@@ -177,7 +168,7 @@ class Welcome extends Component {
 
 
         if (typeof web3 !== "undefined") {
-            console.log("You have web3!");
+            //console.log("You have web3!");
             return (
 
                 <div style={{}} className="Welcome">

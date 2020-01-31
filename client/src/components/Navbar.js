@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import Button from '@material-ui/core/Button';
-import {styled, withStyles} from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
+import {styled} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import NavigationIcon from '@material-ui/icons/Navigation';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import Fab from '@material-ui/core/Fab';
 import { Link, Redirect } from 'react-router-dom'
 import getWeb3 from "../utils/getWeb3";
-import SimpleStorageContract from "../contracts/SimpleStorage";
-import Web3 from "web3"
-import Welcome from "./Welcome"
-import Main from "./Main"
 import {LoginContext} from "../contexts/LoginContext";
-import Ethgarden from "./Ethgarden";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";

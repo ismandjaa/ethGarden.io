@@ -1,4 +1,4 @@
-import React, { Component, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import "../App.css";
 import { makeStyles } from '@material-ui/core/styles';
@@ -50,7 +50,6 @@ export default function Garden() {
     }
 
     useEffect( () => {
-        // Your code here
         async function getMyPlants() {
 
             const web3 = await getWeb3();

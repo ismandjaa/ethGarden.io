@@ -2,12 +2,10 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Garden from './Garden'
 import Shop from './Shop'
-import Welcome from './Welcome'
 import Login from './Login'
 import Help from './Help'
 import Achievements from './Achievements'
 import Plant from './Plant'
-import Navbar from './Navbar'
 
 
 
@@ -27,8 +25,6 @@ const Main = () => (
             <Route exact path='/Help' component={Help}/>
             <Route exact path='/Achievements' component={Achievements}/>
             <Route exact path='/Plant' component={Plant}/>
-
-            // add more routes here
         </Switch>
     </main>
 );

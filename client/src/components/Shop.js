@@ -4,8 +4,6 @@ import "../App.css"
 import Button from 'react-bootstrap/Button';
 import getWeb3 from "../utils/getWeb3";
 import PlantBase from "../contracts/PlantBase";
-
-import {PageContext} from "../contexts/PageContext";
 import {LoginContext} from "../contexts/LoginContext";
 
 import TextField from '@material-ui/core/TextField';
@@ -20,7 +18,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import CardActions from "@material-ui/core/CardActions";
 
 import { withStyles } from '@material-ui/core/styles';
 

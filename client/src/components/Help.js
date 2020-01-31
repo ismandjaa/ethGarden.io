@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.css'
 import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
-import { styled } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import {BrowserRouter as Router, Redirect, Link} from 'react-router-dom';
-//IMPORT REACT-ROUTER HERE.
-//import { Route, Redirect } from 'react-router'
+import {Redirect} from 'react-router-dom';
 import "../App.css";
 import getWeb3 from "../utils/getWeb3";
 import axios from "axios";
-import SimpleStorageContract from "../contracts/SimpleStorage";
-import Navbar from "./Navbar"
-import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import {LoginContext} from "../contexts/LoginContext";
 
 

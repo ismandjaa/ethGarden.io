@@ -4,23 +4,11 @@ import "../App.css"
 import Button from 'react-bootstrap/Button';
 import getWeb3 from "../utils/getWeb3";
 import PlantBase from "../contracts/PlantBase";
-
-import {PageContext} from "../contexts/PageContext";
 import {LoginContext} from "../contexts/LoginContext";
-
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardActions from "@material-ui/core/CardActions";
 import { withStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import Divider from '@material-ui/core/Divider';
@@ -29,7 +17,6 @@ import Medal1 from "../img/medal1.png";
 import Medal2 from "../img/medal2.png";
 import Medal3 from "../img/medal3.png";
 import Blank from "../img/blank.png";
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const styles = theme => ({
@@ -49,7 +36,7 @@ const styles = theme => ({
     },
 });
 
-let getGreens = 0;
+//let getGreens = 0;
 
 class Achievements extends Component {
 
@@ -67,7 +54,6 @@ class Achievements extends Component {
             // Use web3 to get the user's accounts.
             const accounts = await web3.eth.getAccounts();
             // Get the contract instance.
-            const networkId = await web3.eth.net.getId();
             const instance = new web3.eth.Contract(
                 PlantBase.abi,
                 "0x25F7f77ce006C2F5BeC35d8D4a820e3Ad47f1d90",
@@ -75,9 +61,7 @@ class Achievements extends Component {
             this.setState({ web3, accounts, contract: instance });
 
             const currentApi = "https://ethgarden.io/api/";
-            const config = {
-                headers: {'Authorization': "bearer " + this.context.accessToken}
-            };
+
             await axios.get(currentApi + "badges/" + web3.utils.toChecksumAddress(web3.currentProvider.selectedAddress))
                 .then(response => {
                     console.log("Here are your badges:");

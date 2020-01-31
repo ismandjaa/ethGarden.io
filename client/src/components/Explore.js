@@ -17,9 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import Ethgarden from "./Ethgarden";
 import Main from "./Main";
-import {Redirect, Link} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import Shop from "./Shop";
 
 const drawerWidth = 240;
